@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>TRAIN TOOL</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #edeeee;margin-left: 100px;margin-right: 100px">
+	<div style="" class="">
+		<div class="panel-heading text-center">
+			<h1>MAP TRAIN TOOL</h1>
+		</div>
+		<div class="row" >
+			<div class="form-group col-sm-3">
+				<p>ct: Quầy phục vụ</p>
+				<p>bx: Hộp</p>
+				<p>cv: Khoang</p>
+				<p>bd: Bed</p>
+			</div>
+			<div class="form-group col-sm-3">
+				<p>s: Ghế xuôi</p>
+				<p>rs: Ghế ngược</p>
+				<p>tb: Bàn</p>
+				<p>sh: Kệ</p>
+			</div>
+			<div class="form-group col-sm-3">
+				<p>br: Vật cản</p>
+				<p>wc: Toilet</p>
+				<p>lb: Nhà tắm</p>
+			</div>
+			<div class="form-group col-sm-3">
+				<p>tx: Text</p>
+				<p>bd: Bed</p>
+				<p>fo: Tầng</p>
+			</div>
+		</div>
+	</div>
+	<div class="row" >
+		<div class="col-sm-7" style="">
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+
+					<div class="row">
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="rowN" placeholder="Số dòng">
+						</div>
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="columnM" placeholder="Số cột">
+						</div>
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="floorM" placeholder="Số tầng" value="1">
+						</div>
+						<button type="button" class="btn btn-success col-sm-1" onclick="createMatrix()">Create</button>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="ratioCell" placeholder="Tỉ lệ width/height" value="1">
+						</div>
+					
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="padding" placeholder="padding" value = "5">
+						</div>
+
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="paddingWidth" placeholder="padding Width" value = "5">
+						</div>
+
+						
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="titleToa" placeholder="title toa">
+						</div>
+
+						<div class="form-group col-sm-3">
+							<input type="text" class="form-control" id="marginHoli" placeholder="margin holizontal" value = "40">
+						</div>
+						
+					</div>
+				</div>
+				<div class="panel-body">
+
+
+					<div  id="matrixFloor" >
+
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+		<div class="col-sm-1 text-center" style="">
+			<button type="button" class="btn btn-primary" onclick="exportJSON()">Generate JSON</button>
+		</div>
+
+		<div class="col-sm-4" style="">
+			<div class="panel panel-default">
+				<div class="panel-heading">Result</div>
+				<div class="panel-body">
+					<div class="row">
+						<div  class="col-sm-12 " id = "resultJson">
+
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+</body>
+<script>
+	var n=0;
+	var m = 0;
+	var f = 1;
+	var ratioCell = 1;
+	var padding = 5;
+	var titleToa = "";
+	var marginHoli = 40
+	var paddingWidth = 5;
+	function exportJSON(){
+		this.getConfig();
+
+		let objFinal = {}
+		objFinal.width = this.m;
+		objFinal.height = this.n;
+		objFinal.ratioCell = this.ratioCell;
+		objFinal.padding = this.padding
+		objFinal.title = this.titleToa
+		objFinal.marginHoli = this.marginHoli
+		objFinal.paddingWidth = this.paddingWidth
+
+
+		let floorLists = new Array(this.f)
+		for(let i=0;i<this.f;i++){
+			floorLists[i] = this.exportFloor(i)
+		}
+		objFinal.floors = floorLists
+		document.getElementById("resultJson").innerHTML = JSON.stringify(objFinal);
+	}
+
+	function getConfig(){
+		let wis = document.getElementById('ratioCell').value;
+		let pas = document.getElementById('padding').value;
+		let tis = document.getElementById('titleToa').value;
+		let hos = document.getElementById('marginHoli').value;
+
+		let pasW = document.getElementById('paddingWidth').value;
+
+		this.ratioCell = parseInt(wis)
+		this.padding = parseInt(pas)
+		this.titleToa = tis
+		this.marginHoli = parseInt(hos)
+		this.paddingWidth = parseInt(pasW)
+
+	}
+
+	function exportFloor(k){
+		let matrix = this.getMatrix(this.n,this.m,k);
+		let jsonExport = this.findJSON(matrix,this.n,this.m);
+		jsonExport = this.formatData(jsonExport,this.n,this.m)
+		return jsonExport
+	}
+
+	function formatData(matrix,n,m){
+		for(let i = 0;i<n;i++){
+			matrix[i] = matrix[i].filter(function(n){ return n != null }); 
+		}
+		return matrix
+	}
+
+	function findJSON(matrix,x,y){
+		let obj = {}
+		obj.coor = {x:0,y:0}
+		let arrFull = new Array(x);
+
+		for(let i = 0;i<x;i++){
+			let arrCell = new Array(y);
+			for(let j = 0;j<y;j++){
+				let value =matrix[i][j]
+				if(value != ""){
+
+					let distance = this.findWidthHeightComponent(matrix,i,j)
+					arrCell[j] = this.getComponent(matrix[i][j],i,j,distance.width,distance.height);
+				}
+			}
+			arrFull[i] = arrCell;
+		}
+
+		return arrFull
+
+
+	}
+
+	function getComponent(value,i,j,width,height){
+		let obj = {
+			"pos":{
+				"x":i,
+				"y":j,
+				"width":width,
+				"height":height,
+			},
+			"title":""
+		}
+		if(value == "")
+			return obj
+		let items = value.split("_");
+		switch(items[0]){
+			case "s":
+				obj.type = "seat"
+				obj.id = items[1]
+				break;
+			case "rs":
+				obj.type = "reSeat"
+				obj.id = items[1]
+				break;
+			case "tb":
+				obj.type = "table"
+				break;
+			case "br":
+				obj.type = "barrier"
+				break;
+			case "wc":
+				obj.type = "toilet"
+				break;
+			case "lb":
+				obj.type = "lavabo"
+				break;
+			case "tx":
+				obj.type = "text"
+				break;
+			case "bd":
+				obj.type = "bed"
+				obj.id = items[1]
+				break;
+			case "cv":
+				obj.type = "cavity"
+				obj.title = "Khoang " + items[1]
+				break;
+			case "fo":
+				obj.type = "floor"
+				obj.title = "Tầng " + items[1]
+				break;
+			case "sh":
+				obj.type = "shelf"
+				obj.title ="Kê dụng cụ"
+				break;
+			case "ct":
+				obj.type = "counter"
+				obj.title ="Quầy phục vụ"
+				break;
+			case "bx":
+				obj.type = "box"
+				break;
+		}
+		return obj
+	}
+
+	function findWidthHeightComponent(matrix,px,py){
+		// if(matrix[px][py] == "s" || matrix[px][py] == "rs" || matrix[px][py] == "fo" ||  matrix[px][py] == "cv" || matrix[px][py] == "bd"){
+		// 	return {width:1,height:1}
+		// }
+		let x=0;
+		let y=0;
+		for(let i = px;i<matrix.length;i++){
+			if(matrix[i][py] == matrix[px][py]){
+				x++;
+			}else{
+				break;
+			}
+		}
+
+		for(let j = py;j<matrix[0].length;j++){
+			if(matrix[px][j] == matrix[px][py]){
+				y++;
+			}else{
+				break;
+			}
+		}
+
+		for(let i = 0;i<x;i++){
+			for(let j = 0;j<y;j++){
+				if(i==0 && j == 0){
+				}else{
+					matrix[px + i][ py + j] = ""
+				}
+
+			}
+		}
+
+		return {width:y,height:x}
+	}
+
+
+	function createMatrix() {
+		let ns = document.getElementById('rowN').value;
+		let ms = document.getElementById('columnM').value;
+		let fs = document.getElementById('floorM').value;
+		let wis = document.getElementById('ratioCell').value;
+		let pas = document.getElementById('padding').value;
+
+
+
+		this.n = parseInt(ns)
+		this.m = parseInt(ms)
+		this.f = parseInt(fs)
+		this.ratioCell = parseInt(wis)
+		this.padding = parseInt(pas)
+
+
+
+		let floor = ''
+
+		for(let k=0;k<f;k++){
+			let matrix = '';
+
+			for(let i=0;i<n;i++){
+				let rowMatrix = ''
+				for(let j=0;j<m;j++){
+					let id =k+""+ i + "" +j + ""
+					rowMatrix+= '<div class="col-sm-1" >'
+					+'<input style="width:100%;height:100%;border-style: solid;border-width: 1px;" type="text" id = '+id+' >'
+					+'</div>'
+				}
+				matrix+= '<div class="row">'
+				+rowMatrix
+				+'</div>'
+			}
+			let isHr = '<hr/>'
+			if(k==f-1){
+				isHr = ''
+			}
+			floor+= 
+			'<div class="row"  >'
+			+'<div  class="col-sm-1" >'
+			+'<p>Tầng '+(k+1)+'</p>'
+			+'</div>'
+			+'<div  class="col-sm-11 " id = "matrix">'
+			+matrix
+			+'</div>'
+			+'</div>'
+			+isHr
+
+           // floor+= matrix
+       }
+
+
+       document.getElementById("matrixFloor").innerHTML = floor;
+
+
+         // return matrix;
+     }
+
+     function getMatrix(n,m,k){
+     	console.log("abc" +n)
+     	var matrix = new Array(n);
+     	for (var i = 0; i < n; i++) {
+     		matrix[i] = new Array(m);
+     	}
+     	for(let i=0;i<n;i++){
+     		for(let j = 0;j<m;j++){
+     			let id = k+""+i + "" +j + ""
+     			matrix[i][j] = document.getElementById(id).value;
+     			console.log( matrix[i][j])
+     		}
+     	}
+     	return matrix
+     }
+
+
+
+
+
+
+ </script>
+ </html>

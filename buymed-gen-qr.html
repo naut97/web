@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BUYMED GEN PRODUCT QR TOOL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #edeeee;margin-left: 100px;margin-right: 100px">
+<div style="" class="">
+    <div class="panel-heading text-center">
+        <h1>BUYMED GEN PRODUCT QR TOOL</h1>
+    </div>
+    <div class="row" >
+        <div class="form-group col-sm-3">
+            <p>P: ProductId</p>
+            <p>S: Seller Code</p>
+            <p>L: Lot</p>
+            <p>E: Expire date (DDMMYY)</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <p>V: VAT/NON-VAT</p>
+            <p>R: PurchaseOrder</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <p>U: Unique ID</p>
+            <p>C: Computer Code</p>
+            <p>I: Increase Code</p>
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-sm-7" style="">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        P<input type="text" class="form-control" id="ProductId" placeholder="ProductId">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        S<input type="text" class="form-control" id="SellerCode" placeholder="SellerCode" value="MEDX">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        L<input type="text" class="form-control" id="Lot" placeholder="Lot" value="A">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        E<input type="text" class="form-control" id="ExpireDate" placeholder="ExpireDate" value="111225">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        V<input type="text" class="form-control" id="VAT" placeholder="VAT thì -1" value="-1">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        R<input type="text" class="form-control" id="PurchaseOrder" placeholder="PO" value="PO209545">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        U<input type="text" class="form-control" id="UniqueId" placeholder="UniqueId" value="25">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        T<input type="text" class="form-control" id="TimeStamp" placeholder="TimeStamp" value="1678760147">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        C<input type="text" class="form-control" id="ComputerCode" placeholder="ComputerCode" value="AA">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        I<input type="text" class="form-control" id="IncreaseNumber" placeholder="IncreaseNumber" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div id="result">
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="col-sm-1 text-center" style="">
+        <button type="button" class="btn btn-primary" onclick="generateQRLink()">Generate Link</button>
+    </div>
+</body>
+<script>
+function generateQRLink() {
+  let productId = document.getElementById('ProductId').value;
+  let sellerCode = document.getElementById('SellerCode').value;
+  let lot = document.getElementById('Lot').value;
+  let expireDate = document.getElementById('ExpireDate').value;
+  let vat = document.getElementById('VAT').value;
+  let po = document.getElementById('PurchaseOrder').value;
+  let uniqId = document.getElementById('UniqueId').value;
+  let timestamp = document.getElementById('TimeStamp').value;
+  let computerCode = document.getElementById('ComputerCode').value;
+  let increaseNumber = document.getElementById('IncreaseNumber').value;
+  let link = "https://thuocsi.vn/qr/";
+
+  if (productId) {
+    link += `P${productId.length.toString().padStart(2, "0")}${productId}`;
+  }
+  if (sellerCode) {
+    link += `S${sellerCode.length.toString().padStart(2, "0")}${sellerCode}`;
+  }
+  if(lot) {
+    link += `L${lot.length.toString().padStart(2, "0")}${lot}`;
+  }
+  if(expireDate) {
+    link += `E${expireDate.length.toString().padStart(2, "0")}${expireDate}`;
+  }
+  if(vat) {
+    link += `V${vat.length.toString().padStart(2, "0")}${vat}`;
+  }
+  if(po) {
+    link += `R${po.length.toString().padStart(2, "0")}${po}`;
+  }
+  if(uniqId) {
+    link += `U${uniqId}`;
+  }
+  if(timestamp) {
+    link += `T${timestamp.length.toString().padStart(2, "0")}${timestamp}`;
+  }
+  if(computerCode) {
+    link += `C${computerCode.length.toString().padStart(2, "0")}${computerCode}`;
+  }
+  if(computerCode) {
+    link += `I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`;
+  }
+
+  document.getElementById('result').innerText = link;
+}
+
+</script>
+</html>

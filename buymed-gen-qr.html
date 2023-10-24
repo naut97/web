@@ -128,7 +128,7 @@ function generateQRLink() {
   }
 
     uniqId.value = `T${timestamp.length.toString().padStart(2, "0")}${timestamp}C${computerCode.length.toString().padStart(2, "0")}${computerCode}I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`.length;
-    link += `U${uniqId.value.length}`;
+    link += `U${uniqId.value}`;
 
   if(timestamp) {
     link += `T${timestamp.length.toString().padStart(2, "0")}${timestamp}`;

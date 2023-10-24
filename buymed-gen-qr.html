@@ -12,6 +12,7 @@
 		.hide {
 			display: "none"
 		}
+
 		img {
 			margin-top: 10px
 		}
@@ -886,16 +887,16 @@
 			for (let i = parseInt(increaseFromNumber); i <= parseInt(increaseToNumber); i++) {
 				if (i) {
 					const t = link + `I${i.toString().length.toString().padStart(2, "0")}${i}`;
-				}
-				if (productId && sellerCode && lot && expireDate && vat && po && uniqId.value && timestamp.value && computerCode && i) {
-					new QRCode(document.getElementById("qrcode"), {
-						text: link,
-						width: 128,
-						height: 128,
-						colorDark: "#000000",
-						colorLight: "#ffffff",
-						correctLevel: QRCode.CorrectLevel.H
-					});
+					if (productId && sellerCode && lot && expireDate && vat && po && uniqId.value && timestamp.value && computerCode && i) {
+						new QRCode(document.getElementById("qrcode"), {
+							text: t,
+							width: 128,
+							height: 128,
+							colorDark: "#000000",
+							colorLight: "#ffffff",
+							correctLevel: QRCode.CorrectLevel.H
+						});
+					}
 				}
 			}
 

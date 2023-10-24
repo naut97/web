@@ -740,11 +740,11 @@ function generateQRLink() {
   if(po) {
     link += `R${po.length.toString().padStart(2, "0")}${po}`;
   }
-
+	timestamp.value = Math.floor(new Date().getTime() / 1000.0).toString();
+    link += `T${timestamp.length.toString().padStart(2, "0")}${timestamp}`;
     uniqId.value = `T${timestamp.length.toString().padStart(2, "0")}${timestamp}C${computerCode.length.toString().padStart(2, "0")}${computerCode}I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`.length;
     link += `U${uniqId.value}`;
-    timestamp.value = Math.floor(new Date().getTime() / 1000.0).toString();
-    link += `T${timestamp.length.toString().padStart(2, "0")}${timestamp}`;
+    
   if(computerCode) {
     link += `C${computerCode.length.toString().padStart(2, "0")}${computerCode}`;
   }

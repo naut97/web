@@ -59,7 +59,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-3">
-                        U<input type="text" class="form-control" id="UniqueId" placeholder="UniqueId">
+                        U<input type="text" class="form-control" id="UniqueId" placeholder="UniqueId" disabled>
                     </div>
                     <div class="form-group col-sm-3">
                         T<input type="text" class="form-control" id="TimeStamp" placeholder="TimeStamp" disabled>
@@ -127,7 +127,7 @@ function generateQRLink() {
     link += `R${po.length.toString().padStart(2, "0")}${po}`;
   }
 
-    uniqId.value = `T${timestamp.length.toString().padStart(2, "0")}${timestamp}C${computerCode.length.toString().padStart(2, "0")}${computerCode}I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`
+    uniqId.value = `T${timestamp.length.toString().padStart(2, "0")}${timestamp}C${computerCode.length.toString().padStart(2, "0")}${computerCode}I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`.length;
     link += `U${uniqId.value.length}`;
 
   if(timestamp) {
@@ -139,8 +139,11 @@ function generateQRLink() {
   if(increaseNumber) {
     link += `I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`;
   }
-
-  document.getElementById('result').innerText = link;
+    if(productId && sellerCode && lot && expireDate && vat && po && uniqId.value && timestamp && computerCode && increaseNumber) {
+        document.getElementById('result').innerText = link;
+    } else {
+        document.getElementById('result').innerText = "Lỗi format";
+    }
 }
 
 </script>

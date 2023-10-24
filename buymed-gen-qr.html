@@ -59,18 +59,18 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-3">
-                        U<input type="text" class="form-control" id="UniqueId" placeholder="UniqueId" value="25">
+                        U<input type="text" class="form-control" id="UniqueId" placeholder="UniqueId">
                     </div>
                     <div class="form-group col-sm-3">
-                        T<input type="text" class="form-control" id="TimeStamp" placeholder="TimeStamp" value="1678760147">
+                        T<input type="text" class="form-control" id="TimeStamp" placeholder="TimeStamp" disabled>
                     </div>
                     <div class="form-group col-sm-3">
-                        C<input type="text" class="form-control" id="ComputerCode" placeholder="ComputerCode" value="AA">
+                        C<input type="text" class="form-control" id="ComputerCode" placeholder="ComputerCode">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-3">
-                        I<input type="text" class="form-control" id="IncreaseNumber" placeholder="IncreaseNumber" value="1">
+                        I<input type="text" class="form-control" id="IncreaseNumber" placeholder="IncreaseNumber">
                     </div>
                 </div>
             </div>
@@ -90,6 +90,11 @@
     </div>
 </body>
 <script>
+    window.onLoad = function() {
+        let timestamp = document.getElementById('TimeStamp');
+        timestamp.value = Math.floor(new Date().getTime() / 1000.0).toString();
+    
+    }
 function generateQRLink() {
   let productId = document.getElementById('ProductId').value;
   let sellerCode = document.getElementById('SellerCode').value;
@@ -97,7 +102,7 @@ function generateQRLink() {
   let expireDate = document.getElementById('ExpireDate').value;
   let vat = document.getElementById('VAT').value;
   let po = document.getElementById('PurchaseOrder').value;
-  let uniqId = document.getElementById('UniqueId').value;
+  let uniqId = document.getElementById('UniqueId');
   let timestamp = document.getElementById('TimeStamp').value;
   let computerCode = document.getElementById('ComputerCode').value;
   let increaseNumber = document.getElementById('IncreaseNumber').value;
@@ -121,16 +126,17 @@ function generateQRLink() {
   if(po) {
     link += `R${po.length.toString().padStart(2, "0")}${po}`;
   }
-  if(uniqId) {
-    link += `U${uniqId}`;
-  }
+
+    uniqId.value = `T${timestamp.length.toString().padStart(2, "0")}${timestamp}C${computerCode.length.toString().padStart(2, "0")}${computerCode}I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`
+    link += `U${uniqId.value.length}`;
+
   if(timestamp) {
     link += `T${timestamp.length.toString().padStart(2, "0")}${timestamp}`;
   }
   if(computerCode) {
     link += `C${computerCode.length.toString().padStart(2, "0")}${computerCode}`;
   }
-  if(computerCode) {
+  if(increaseNumber) {
     link += `I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`;
   }
 

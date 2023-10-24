@@ -741,8 +741,8 @@ function generateQRLink() {
     link += `R${po.length.toString().padStart(2, "0")}${po}`;
   }
 	timestamp.value = Math.floor(new Date().getTime() / 1000.0).toString();
-    link += `T${timestamp.value.length.toString().padStart(2, "0")}${timestamp}`;
-    uniqId.value = `T${timestamp.value.length.toString().padStart(2, "0")}${timestamp}C${computerCode.length.toString().padStart(2, "0")}${computerCode}I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`.length;
+    link += `T${timestamp.value.length.toString().padStart(2, "0")}${timestamp.value}`;
+    uniqId.value = `T${timestamp.value.length.toString().padStart(2, "0")}${timestamp.value}C${computerCode.length.toString().padStart(2, "0")}${computerCode}I${increaseNumber.length.toString().padStart(2, "0")}${increaseNumber}`.length;
     link += `U${uniqId.value}`;
     
   if(computerCode) {

@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thông tin Circa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet" />
+    <style>
+      body {
+        background-color: white;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        font-size: 12px;
+        scroll-behavior: smooth;
+      }
+      header {
+        background: white;
+        padding: 10px 0;
+      }
+      header nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none; /* For Firefox */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      }
+      header nav::-webkit-scrollbar-track {
+        background-color: #f7f7f7;
+      }
+      header nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #393939;
+        padding: 5px 10px;
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      header nav a.active {
+        font-weight: 500;
+        color: #393939;
+        border-bottom: 2px solid #fb743e;
+      }
+      header nav::-webkit-scrollbar {
+        height: 6px;
+      }
+      header nav::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 10px;
+      }
+      main {
+        padding: 0 16px 16px 16px;
+      }
+      section {
+        margin-bottom: 40px; /* Adds spacing between sections */
+      }
+      .payment-method {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .payment-method img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+      .payment-method span {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .content-section {
+        padding-top: 16px;
+      }
+      .dash {
+        border-bottom-width: 1px;
+        border-bottom-color: #dcdbdb;
+        border-bottom-style: dashed;
+        margin-bottom: 16px;
+      }
+      .bank-details {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+        background-color: white;
+      }
+      .bank-details .key {
+        font-size: 12px;
+        font-weight: 400;
+        color: #797979;
+        line-height: 22px;
+      }
+      .bank-details .value-group {
+        margin-left: 8px;
+      }
+      .bank-details .bank-name {
+        font-size: 12px;
+        font-weight: 400;
+        color: #797979;
+      }
+      .bank-details strong {
+        font-size: 14px;
+        font-weight: 500;
+        color: #393939;
+        line-height: 22px;
+      }
+      .bank-details .copy {
+        color: #007bff;
+        cursor: pointer;
+        margin-left: 8px;
+      }
+      .payment-support {
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 16px;
+        background-color: white;
+      }
+      .payment-support p {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .payment-support .phone-call-support {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 16px;
+        margin-left: 8px;
+      }
+      .payment-support .zalo-support {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 16px;
+        margin-left: 8px;
+      }
+      .payment-support .zalo-support a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        color: #0068ff;
+      }
+      .payment-support a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        color: #fb743e;
+      }
+      .qr-section {
+        text-align: center;
+      }
+      .qr-section img {
+        width: 90px;
+        height: 90px;
+      }
+      .download-qr {
+        display: inline-block;
+        text-decoration: none;
+        color: #ff6f00;
+        font-size: 14px;
+        margin-left: 4px;
+      }
+      .icon-20 {
+        width: 20px;
+        height: 20px;
+      }
+      .icon-16 {
+        width: 16px;
+        height: 16px;
+      }
+      p.title {
+        color: #393939;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      p.content {
+        color: #393939;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      a.primaryRef {
+        text-decoration: none;
+        color: #fb743e;
+        font-weight: 500;
+      }
+      .medium {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      ol {
+        font-size: 14px;
+        color: #393939;
+      }
+      .li-lvl-1 {
+        padding-left: 10px;
+      }
+      .li-lvl-2 {
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav id="nav">
+        <a
+          href="#"
+          class="active"
+          id="ref-payment-methods"
+          onclick="switchTab(event, 'payment-methods')"
+          >Phương thức thanh toán</a
+        >
+        <a href="#" id="ref-payment-security" onclick="switchTab(event, 'payment-security')"
+          >Bảo mật thông tin thanh toán</a
+        >
+        <a href="#" id="ref-usage-terms" onclick="switchTab(event, 'usage-terms')"
+          >Điều khoản sử dụng</a
+        >
+        <a
+          href="#"
+          id="ref-transaction-general-terms"
+          onclick="switchTab(event, 'transaction-general-terms')"
+          >Điều kiện giao dịch chung</a
+        >
+        <a
+          href="#"
+          id="ref-personal-data-protection-terms"
+          onclick="switchTab(event, 'personal-data-protection-terms')"
+          >Chính sách bảo vệ dữ liệu cá nhân</a
+        >
+        <a href="#" id="ref-delivery-terms" onclick="switchTab(event, 'delivery-terms')"
+          >Chính sách vận chuyển và giao nhận</a
+        >
+      </nav>
+    </header>
+    <main>
+      <section id="payment-methods" class="content-section">
+        <div class="payment-method">
+          <img
+            src="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/202457078a4e4711a25251ce8436a30f"
+            alt="COD Icon"
+            class="icon-20" />
+          <span>Thanh toán COD khi nhận hàng</span>
+        </div>
+        <div class="dash"></div>
+        <div class="payment-method">
+          <img
+            src="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/2024ea3ecb753717902311632619a387"
+            alt="Bank Transfer Icon"
+            class="icon-20" />
+          <span>Chuyển khoản trước</span>
+        </div>
+        <div class="dash"></div>
+        <div class="bank-details">
+          <div style="display: flex; align-items: flex-start">
+            <div class="key-group">
+              <p class="key">Chủ tài khoản:</p>
+              <p class="key">Số tài khoản:</p>
+              <p class="key">Ngân hàng:</p>
+            </div>
+            <div class="value-group">
+              <p><strong>MEDSHIP</strong></p>
+              <p>
+                <strong>MSH1MEDSHIP</strong>
+                <span class="copy"
+                  ><img
+                    src="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/202466d7b8328a47b159744c5b1b3110"
+                    class="icon-16"
+                    alt="ic-copy"
+                /></span>
+              </p>
+              <p><strong>MSB</strong></p>
+              <p class="bank-name">Ngân hàng TMCP Hàng Hải Việt Nam</p>
+            </div>
+          </div>
+          <div class="dash"></div>
+          <div class="qr-section">
+            <img
+              id="bank-qr"
+              src="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/20240004cbd2035036138167e3e27bf5"
+              alt="QR Code" />
+          </div>
+          <div style="display: flex; justify-content: center; margin-top: 8px">
+            <img
+              src="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/202449a7679debbf1db9b3fb36b1caf5"
+              class="icon-16"
+              alt="download" />
+            <a
+              class="download-qr"
+              download="MSH1MEDSHIP.jpg"
+              href="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/20240004cbd2035036138167e3e27bf5"
+              >Tải mã QR xuống</a
+            >
+          </div>
+        </div>
+
+        <div class="payment-support">
+          <p>Hỗ trợ thanh toán</p>
+          <div style="display: flex">
+            <img
+              src="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/202468960f548ef0fa2f872104bf3f19"
+              class="icon-16"
+              alt="support" /><span class="phone-call-support"
+              >Gọi <a href="tel:18002039">1800 2039</a> (Tư vấn miễn phí)</span
+            >
+          </div>
+          <div style="display: flex; margin-top: 20px">
+            <img
+              src="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/20245ea3e0f5b4c3248097192aa71481"
+              class="icon-16"
+              alt="zalo" /><span class="zalo-support"
+              ><a href="https://zalo.me/732439763747467938">Kết nối Zalo</a></span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="payment-security" class="content-section" style="display: none">
+        <h1>CHÍNH SÁCH BẢO MẬT THÔNG TIN THANH TOÁN</h1>
+        <p class="title">
+          Chính sách bảo mật thông tin thanh toán của Circa quy định về phương thức thu thập, lưu
+          trữ, sử dụng và bảo vệ thông tin thanh toán của Khách Hàng.
+        </p>
+        <p class="content">
+          Khi Khách Hàng thực hiện thanh toán trực tuyến tại Nền Tảng Circa, Khách Hàng theo đây
+          đồng ý với các chính sách liên quan đến tất cả các phương thức thanh toán mà Circa đang áp
+          dụng, bao gồm Chính sách bảo mật thông tin thanh toán này. Vui lòng đọc kỹ nội dung Chính
+          sách bảo mật thông tin thanh toán được đề cập bên dưới.
+        </p>
+        <p class="title">1. Thu thập thông tin thanh toán</p>
+        <p class="content">Nền Tảng Circa có thể thu thập các thông tin thanh toán như sau:</p>
+        <p class="content">
+          Địa chỉ IP; <br />Địa chỉ gửi hóa đơn mà bạn đã đăng ký với ngân hàng phát hành; <br />và
+          Thông tin của bạn từ các bên thứ 3 như: nhà cung cấp, ngân hàng, các tổ chức tín dụng
+          khác;
+        </p>
+        <p class="content">
+          Các thông tin thanh toán nói trên sẽ được Circa bảo mật phù hợp với các quy định của Chính
+          sách bảo vệ dữ liệu cá nhân của Circa được áp dụng tùy từng thời điểm.
+        </p>
+        <p class="title">2. Điều chỉnh Chính sách bảo mật thông tin thanh toán</p>
+        <p class="content">
+          Circa có quyền sửa đổi, bổ sung Chính sách bảo mật thông tin thanh toán bằng cách thông
+          báo trên Nền Tảng và qua các cách thức khác phù hợp quy định pháp luật. Chính sách sửa
+          đổi, bổ sung sẽ có hiệu lực kể từ thời điểm được thông báo và đăng tải công khai trên Nền
+          Tảng Circa. Trong phạm vi pháp luật cho phép, việc Khách Hàng tiếp tục sử dụng truy cập và
+          mua hàng hóa trên Circa sau khi Chính sách sửa đổi, bổ sung có hiệu lực đồng nghĩa với
+          việc Khách Hàng đã chấp nhận Chính sách sửa đổi, bổ sung này.
+        </p>
+        <p class="title">3. Liên hệ với Circa</p>
+        <p class="content">
+          Nếu Khách Hàng có bất kỳ thắc mắc nào về nội dung Chính sách bảo mật thông tin thanh toán,
+          vui lòng liên hệ với Circa theo số điện thoại
+          <a href="tel:02871076789" class="primaryRef">(028) 7101.6789</a> hoặc gửi email đến địa
+          chỉ <a href="mailto:hotro.circa@buymed.com" class="primaryRef">hotro.circa@buymed.com</a>.
+        </p>
+      </section>
+
+      <section id="usage-terms" class="content-section" style="display: none">
+        <h1>ĐIỀU KHOẢN SỬ DỤNG NỀN TẢNG CIRCA</h1>
+        <ol style="list-style-type: decimal; list-style-position: inside; margin: 0; padding: 0">
+          <li class="medium">Giới thiệu</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>1.1</strong> Chào mừng bạn đến với Nền Tảng Circa (bao gồm Website thương mại
+              điện tử circa.vn và Ứng dụng di động Circa) được được vận hành bởi Công Ty TNHH Circa
+              Pharmacy và các công ty liên kết (gọi chung là “Circa” hoặc “Công Ty”). Vui lòng đọc
+              kỹ các Điều khoản sử dụng dưới đây để hiểu rõ quyền và nghĩa vụ của mình đối với Nền
+              Tảng Circa. Bằng việc sử dụng Nền Tảng Circa và/hoặc tạo tài khoản trên Nền Tảng
+              Circa, Khách Hàng đã chấp nhận và đồng ý với Điều khoản sử dụng và các chính sách bổ
+              sung được dẫn chiếu tại Điều khoản này.
+            </p>
+            <p>
+              <strong>1.2</strong> Nền Tảng Circa cho phép Khách Hàng được mua các hàng hóa được
+              đăng bán phù hợp với quy định pháp luật và theo quy định của Circa. Tùy từng thời
+              điểm, Circa có thể cung cấp cho Khách Hàng các dịch vụ khác trên Nền Tảng Circa phù
+              hợp với các quy định pháp luật và sau khi Khách Hàng đã đồng ý các Điều khoản và điều
+              kiện liên quan đến việc sử dụng từng dịch vụ cụ thể.
+            </p>
+            <p>
+              <strong>1.3</strong> Khách Hàng cần đọc và chấp nhận các điều khoản và điều kiện được
+              quy định hoặc dẫn chiếu trong Điều khoản sử dụng này. Trong phạm vi pháp luật cho
+              phép, Circa bảo lưu quyền thay đổi, chỉnh sửa, tạm ngưng hoặc chấm dứt bất kỳ điều
+              khoản và điều kiện của Điều khoản sử dụng này.
+            </p>
+            <p>
+              <strong>1.4</strong> Circa bảo lưu quyền từ chối yêu cầu mở Tài Khoản hoặc các truy
+              cập của Khách Hàng đến Nền Tảng Circa theo quy định pháp luật và Điều khoản sử dụng.
+            </p>
+          </div>
+          <li class="medium">Quyền riêng tư</li>
+          <div>
+            <p>
+              Circa coi trọng việc bảo mật dữ liệu cá nhân của Khách Hàng. Để bảo vệ quyền lợi Khách
+              Hàng, Circa đã ban hành Chính sách bảo vệ dữ liệu cá nhân để giải thích chi tiết các
+              hoạt động bảo vệ dữ liệu cá nhân của Circa. Vui lòng tham khảo Chính sách bảo vệ dữ
+              liệu cá nhân để biết cách thức Circa thu thập và sử dụng dữ liệu cá nhân liên quan đến
+              Tài Khoản và/hoặc việc sử dụng Nền Tảng Circa của Khách Hàng (“<strong
+                >Dữ Liệu Khách Hàng</strong
+              >”). Điều khoản sử dụng này có liên quan mật thiết với Chính sách bảo vệ dữ liệu cá
+              nhân. Bằng cách truy cập và/hoặc đặt hàng trên Nền Tảng Circa, Khách Hàng cho phép
+              Circa thu thập, công bố hoặc xử lý các thông tin và dữ liệu cá nhân của Khách Hàng
+              theo Chính sách bảo vệ dữ liệu cá nhân được áp dụng trên Nền Tảng Circa tùy từng thời
+              điểm.
+            </p>
+          </div>
+          <li class="medium">Loại trừ giới hạn và trách nhiệm</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>3.1</strong> Circa cấp cho Khách Hàng các quyền phù hợp để truy cập và sử dụng
+              Nền Tảng Circa theo các điều khoản và điều kiện được quy định trong Điều khoản sử sụng
+              này. Tất cả các thương hiệu, nhãn hiệu, tên thương mại, biểu tượng và tài sản sở hữu
+              trí tuệ khác (“<strong>Tài Sản Sở Hữu Trí Tuệ</strong>”) hiển thị trên Nền Tảng Circa
+              đều thuộc sở hữu độc quyền của Circa. Không một bên nào truy cập vào Nền Tảng Circa
+              được cấp quyền hoặc cấp phép trực tiếp hoặc gián tiếp để sử dụng hoặc sao chép bất kỳ
+              Tài Sản Sở Hữu Trí Tuệ nào. Bằng cách sử dụng hoặc truy cập vào Nền Tảng Circa, Khách
+              Hàng đồng ý tuân thủ các quy định pháp luật liên quan đến bản quyền, thương hiệu, nhãn
+              hiệu dịch vụ hoặc bất cứ quy định pháp luật nào khác liên quan đến việc bảo vệ Tài Sản
+              Sở Hữu Trí Tuệ của Circa. Khách Hàng đồng ý không được phép sao chép, nhân bản, chỉnh
+              sửa, phát tán, tái bản, chuyển giao, công bố công khai, thực hiện công khai, sửa đổi,
+              phỏng tác, cho thuê, bán, hoặc tạo ra các sản phẩm phái sinh của bất cứ Tài Sản Sở Hữu
+              Trí Tuệ của Circa. Ngoài ra, Khách Hàng đồng ý rằng sẽ không sử dụng bất kỳ robot,
+              chương trình do thám hay bất kỳ thiết bị tự động hoặc phương thức nào khác để theo dõi
+              hoặc sao chép Tài Sản Sở Hữu Trí Tuệ của Circa khi chưa có sự đồng ý trước bằng văn
+              bản của Circa.
+            </p>
+            <p>
+              <strong>3.2</strong> Khách Hàng xác nhận rằng mọi rủi ro phát sinh không liên quan đến
+              việc sử dụng, truy cập hoặc vận hành Nền Tảng Circa sẽ thuộc về Khách Hàng.
+            </p>
+            <p>
+              <strong>3.3</strong> Trong phạm vi pháp luật cho phép, giới hạn trách nhiệm tối đa của
+              Circa đối với bất kỳ yêu cầu hay khiếu nại của Khách Hàng và/hoặc bên thứ ba liên quan
+              đến việc truy cập và sử dụng Nền Tảng Circa là <strong>2.000.000 VNĐ</strong>.
+            </p>
+          </div>
+          <li class="medium">Quyền và trách nhiệm Khách Hàng</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>4.1 Quyền của Khách Hàng</strong>
+            </p>
+            <div class="li-lvl-2">
+              <p>
+                a. Khi đăng ký trở Khách Hàng của Circa và được Circa đồng ý, Khách Hàng sẽ được mua
+                hàng hóa bán trên Nền Tảng Circa.
+                <br />
+                b. Khách Hàng sẽ được cấp một tài khoản bao gồm tên đăng ký và mật khẩu riêng
+                (“<strong>Tài Khoản</strong>”) để mua hàng hóa trên Nền Tảng Circa.
+                <br />
+                c. Khách Hàng có quyền yêu cầu nhân viên của Circa hướng dẫn sử dụng được các công
+                cụ, các tính năng phục vụ cho việc mua hàng và các dịch vụ khác (nếu có) trên Nền
+                Tảng Circa.
+                <br />
+                d. Khách Hàng có quyền đóng góp ý kiến cho Circa bằng cách liên hệ trực tiếp hoặc
+                qua các phương thức khác theo quy định của Circa.
+              </p>
+            </div>
+            <p>
+              <strong>4.2 Nghĩa vụ của Khách Hàng</strong>
+            </p>
+            <div class="li-lvl-2">
+              <p>
+                a. Khách Hàng sẽ tự chịu trách nhiệm về bảo mật Tài Khoản và mọi hoạt động sử dụng
+                Nền Tảng Circa của mình.
+                <br />
+                b. Khách Hàng có trách nhiệm thông báo kịp thời cho Circa về những hành vi sử dụng
+                trái phép, lạm dụng, vi phạm bảo mật, lưu giữ thông tin Tài Khoản của mình để hai
+                bên cùng hợp tác xử lý.
+                <br />
+                c. Khách Hàng cam kết và đồng ý không sử dụng Nền Tảng Circa vào những mục đích bất
+                hợp pháp, không hợp lý, lừa đảo, đe doạ, thăm dò thông tin bất hợp pháp, phá hoại,
+                tạo ra và phát tán virus gây hư hại tới hệ thống, cấu hình, truyền tải thông tin của
+                Nền Tảng Circa hay sử dụng Nền Tảng Circa vào mục đích đầu cơ, lũng đoạn thị trường,
+                tạo những đơn đặt hàng, kể cả phục vụ cho việc phán đoán nhu cầu thị trường. Trong
+                trường hợp vi phạm thì Khách Hàng phải chịu trách nhiệm về các hành vi của mình theo
+                quy định pháp luật
+                <br />
+                d. Khách Hàng cam kết những thông tin cung cấp cho Circa và những thông tin đang tải
+                lên Nền Tảng Circa là chính xác.
+                <br />
+                e. Khách Hàng cam kết không được thay đổi, chỉnh sửa, sao chép, truyền bá, phân
+                phối, cung cấp và tạo những công cụ tương tự của Nền Tảng Circa để cung cấp cho một
+                bên thứ ba nếu không được sự đồng ý của Circa.
+                <br />
+                f. Khách Hàng không được hành động gây mất uy tín của Nền Tảng Circa dưới mọi hình
+                thức như gây mất đoàn kết giữa các Khách Hàng bằng cách sử dụng tên đăng ký thứ hai,
+                thông qua một bên thứ ba hoặc tự mình tuyên truyền, phổ biến những thông tin không
+                có lợi cho uy tín của Nền Tảng Circa.
+              </p>
+            </div>
+          </div>
+          <li class="medium">Phần mềm</li>
+          <div>
+            <p>
+              Bất kỳ phần mềm nào được cung cấp bởi Nền Tảng Circa tới Khách Hàng đều thuộc phạm vi
+              điều chỉnh của Điều khoản sử dụng này. Nền Tảng Circa cũng bảo lưu tất cả các quyền
+              liên quan đến phần mềm không được cấp một cách rõ ràng bởi Nền Tảng Circa mà trong đó
+              bất kỳ tập lệnh hoặc mã code, liên kết đến hoặc dẫn chiếu từ Nền Tảng Circa, được cấp
+              phép cho Khách Hàng bởi các bên thứ ba là chủ sở hữu của tập lệnh hoặc mã code đó mà
+              không phải bởi Nền Tảng Circa .
+            </p>
+          </div>
+          <li class="medium">Tài Khoản và bảo mật</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>6.1</strong> Một số tính năng của Nền Tảng Circa yêu cầu Khách Hàng phải đăng
+              ký một Tài Khoản bằng cách lựa chọn một tên Khách Hàng hoặc số điện thoại để đăng nhập
+              và mật khẩu, đồng thời cung cấp một số thông tin cá nhân nhất định. Khách Hàng được
+              phép sử dụng Tài Khoản của mình để truy cập vào Nền Tảng Circa.
+            </p>
+            <p>
+              <strong>6.2</strong> Khách Hàng đồng ý (a) giữ bí mật mật khẩu và chỉ sử dụng số điện
+              thoại và mật khẩu để đăng nhập, (b) đảm bảo Khách Hàng sẽ đăng xuất khỏi Tài Khoản sau
+              mỗi phiên đăng nhập trên Nền Tảng Circa, và (c) thông báo ngay lập tức với Nền Tảng
+              Circa nếu phát hiện bất kỳ việc sử dụng trái phép nào đối với Tài Khoản của Khách
+              Hàng. Khách Hàng phải chịu trách nhiệm với hoạt động của Tài Khoản của mình, bao gồm
+              tổn thất hoặc thiệt hại phát sinh từ việc sử dụng trái phép liên quan đến Tài Khoản
+              hoặc từ việc không tuân thủ Điều khoản sử dụng này của Khách Hàng.
+            </p>
+            <p>
+              <strong>6.3</strong> Khách Hàng đồng ý rằng Circa có toàn quyền khóa Tài Khoản của
+              Khách Hàng ngay lập tức, gỡ bỏ hoặc xóa từ Nền Tảng Circa bất kỳ nội dung nào liên
+              quan đến Tài Khoản của Khách Hàng vào bất kỳ thời điểm nào mà không cần thông báo hay
+              chịu trách nhiệm với Khách Hàng hay bên thứ ba nào khác. Căn cứ để thực hiện các hành
+              động này có thể bao gồm (a) Tài Khoản không hoạt động trong thời gian dài theo quy
+              định tùy từng thời điểm của Circa, (b) Khách Hàng vi phạm bất kỳ điều khoản nào của
+              Điều khoản sử dụng và/hoặc các chính sách khác của Nền Tảng Circa áp dụng tùy từng
+              thời điểm, (c) Khách Hàng có hành vi bất hợp pháp, lừa đảo và các hành vi gian lận
+              khác trên Nền Tảng Circa, (d) Khách Hàng có nhiều Tài Khoản Khách Hàng khác nhau, (e)
+              Khách Hàng lạm dụng mã giảm giá hoặc quyền lợi khuyến mại (bao gồm việc bán mã giảm
+              giá cho các bên thứ ba cũng như lạm dụng mã giảm giá trên Nền Tảng Circa), (f) Khách
+              Hàng có bất kỳ hành vi gây hại nào tới những Khách Hàng khác, các bên thứ ba hoặc các
+              lợi ích hợp pháp của Circa, và (g) theo yêu cầu của cơ quan nhà nước có thẩm quyền
+              hoặc theo quy định pháp luật.
+            </p>
+            <p>
+              <strong>6.4</strong> Khách Hàng cũng có thể yêu cầu xóa Tài Khoản bằng cách gửi thông
+              báo đến Circa qua email
+              <a href="mailto:hotro.circa@buymed.com" class="primaryRef">hotro.circa@buymed.com</a>.
+              Trong trường hợp này, Khách Hàng vẫn phải chịu trách nhiệm và nghĩa vụ đối với bất kỳ
+              giao dịch nào chưa hoàn thành phát sinh trước thời điểm yêu cầu xóa Tài Khoản được
+              Circa chấp nhận.
+            </p>
+          </div>
+          <li class="medium">Sử dụng Nền Tảng Circa</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>7.1</strong> Quyền sử dụng Nền Tảng Circa của Khách Hàng có hiệu lực cho đến
+              khi Circa ra quyết định chấm dứt quyền sử dụng. Quyền sử dụng hoặc Quyền truy cập sẽ
+              bị chấm dứt theo Điều khoản sử dụng này hoặc trong trường hợp Khách Hàng vi phạm bất
+              cứ điều khoản hoặc điều kiện nào được quy định tại Điều khoản sử dụng này mà Nền Tảng
+              Circa có thể chấm dứt việc sử dụng của Khách Hàng và không cần thông báo.
+            </p>
+            <p><strong>7.2</strong> Khách Hàng không được phép:</p>
+            <div class="li-lvl-2">
+              <p>
+                a. Truyền tải hoặc bằng cách khác công khai bất cứ nội dung nào trái pháp luật, có
+                hại, đe dọa, lạm dụng, quấy rối, gây hoang mang, lo lắng, xuyên tạc, phỉ báng, xúc
+                phạm, khiêu dâm, bôi nhọ, xâm phạm quyền riêng tư của người khác, gây căm phẫn, phân
+                biệt chủng tộc, dân tộc hoặc bất kỳ nội dung nào khác mà Circa cho rằng không phù
+                hợp.
+              </p>
+              <p>
+                b. Sử dụng Nền Tảng Circa để đăng tải nội dung để mạo danh bất kỳ cá nhân hoặc tổ
+                chức nào, hoặc bằng cách nào khác xuyên tạc cá nhân hoặc tổ chức đó.
+              </p>
+
+              <p>
+                c. Sử dụng Nền Tảng Circa phục vụ lợi ích của bất kỳ bên thứ ba nào hoặc để thực
+                hiện bất kỳ hành vi nào không được chấp nhận theo Điều khoản sử dụng này.
+              </p>
+
+              <p>
+                d. Đăng tải các nội dung trên Nền Tảng Circa nhằm mục đích gian lận, không hợp lý,
+                sai trái, gây hiểu nhầm hoặc gây nhầm lẫn.
+              </p>
+
+              <p>
+                e. Mở và sử dụng nhiều Tài Khoản Khách Hàng khác nhau liên quan đến bất kỳ hành vi
+                nào vi phạm điều khoản của Điều khoản sử dụng này.
+              </p>
+
+              <p>
+                f. Truy cập Nền Tảng Circa, mở tài khoản hoặc bằng cách khác truy cập tài khoản
+                Khách Hàng của mình thông qua bất kỳ phần mềm hoặc phần cứng không được chấp thuận
+                hoặc cung cấp bởi Circa, bao gồm phần mềm giả lập, thiết bị giả lập, phần mềm tự
+                động hoặc bất kỳ phần mềm, thiết bị hoặc phần cứng nào có chức năng tương tự.
+              </p>
+
+              <p>
+                g. Thực hiện bất kỳ hành động nào làm sai lệch hệ thống đánh giá hoặc tiếp nhận phản
+                hồi của Nền Tảng Circa.
+              </p>
+
+              <p>
+                h. Cố gắng chuyển đổi mã chương trình, đảo ngược kỹ thuật, tháo gỡ hoặc xâm nhập
+                (hack) Nền Tảng Circa hoặc phá bỏ hoặc vượt qua bất kỳ công nghệ mã hóa hoặc biện
+                pháp bảo mật nào được Circa áp dụng đối với Nền Tảng Circa và/hoặc các dữ liệu được
+                truyền tải, xử lý hoặc lưu trữ trên Nền Tảng Circa.
+              </p>
+
+              <p>
+                i. Khai thác hoặc thu thập bất kỳ thông tin nào liên quan đến Tài Khoản của Khách
+                Hàng khác, bao gồm bất kỳ thông tin hoặc dữ liệu cá nhân nào.
+              </p>
+
+              <p>
+                j. Tải lên, gửi thư điện tử, đăng, chuyển tải hoặc bằng cách khác công khai bất kỳ
+                nội dung nào trên Nền Tảng Circa dẫn đến trường hợp vi phạm các quyền về sáng chế,
+                thương hiệu, bí quyết kinh doanh, bản quyền hoặc bất cứ đặc quyền nào của bất cứ bên
+                thứ ba.
+              </p>
+
+              <p>
+                k. Tải lên, gửi thư điện tử, đăng, chuyển tải hoặc bằng cách khác công khai bất cứ
+                tài liệu chứa các loại vi-rút, worm, trojan hoặc bất kỳ các mã, tập tin hoặc chương
+                trình máy tính được thiết kế để trực tiếp hoặc gián tiếp gây cản trở, điều khiển,
+                gián đoạn, phá hỏng hoặc hạn chế các chức năng hoặc tổng thể của bất kỳ phần mềm
+                hoặc phần cứng hoặc dữ liệu hoặc thiết bị viễn thông của máy tính trên Nền Tảng
+                Circa.
+              </p>
+
+              <p>
+                l. Làm gián đoạn các dòng tương tác thông thường, đẩy nhanh tốc độ “lướt (scroll)”
+                màn hình hơn những Khách Hàng khác có thể đối với Nền Tảng Circa, hoặc bằng cách
+                khác thực hiện thao tác gây ảnh hưởng tiêu cực đến khả năng tham gia giao dịch thực
+                của những Khách Hàng khác trên Nền Tảng Circa.
+              </p>
+
+              <p>
+                m. Can thiệp, điều khiển hoặc làm gián đoạn hoặc thực hiện bất kỳ hành vi nào có thể
+                trực tiếp hoặc gián tiếp vô hiệu hoá, làm quá tải, hoặc làm suy yếu, phá hủy Nền
+                Tảng Circa và/hoặc việc sử dụng và trải nghiệm Nền Tảng Circa của Khách Hàng khác.
+              </p>
+
+              <p>
+                n. Sử dụng Nền Tảng Circa có chủ ý hoặc vô ý để vi phạm pháp luật liên quan đến
+                phòng chống rửa tiền hoặc phòng chống khủng bố.
+              </p>
+
+              <p>
+                o. Sử dụng Nền Tảng Circa để xâm hại tới quyền riêng tư của người khác hoặc để “lén
+                theo dõi” hoặc bằng cách khác quấy rối người khác, hoặc sử dụng Nền Tảng Circa để
+                thu thập hoặc lưu trữ dữ liệu cá nhân của Khách Hàng khác.
+              </p>
+            </div>
+            <p>
+              <strong>7.3</strong> Khách Hàng hiểu rằng bằng cách truy cập và sử dụng Nền Tảng
+              Circa, Khách Hàng có thể gặp phải nội dung mà Khách Hàng cho là phản cảm, không đúng
+              đắn hoặc chưa phù hợp. Circa sẽ không chịu trách nhiệm đối với nội dung, bao gồm lỗi
+              hoặc thiếu sót liên quan đến nội dung, hoặc tổn thất hoặc thiệt hại xuất phát từ việc
+              sử dụng, hoặc dựa trên, nội dung được đăng tải, gửi thư, chuyển tải hoặc bằng cách
+              khác công bố trên Nền Tảng Circa.
+            </p>
+            <p>
+              <strong>7.4</strong> Khách Hàng chấp thuận và đồng ý rằng Circa có thể truy cập, lữu
+              trữ và tiết lộ thông tin Tài Khoản của Khách Hàng trong trường hợp pháp luật có yêu
+              cầu hoặc theo lệnh của tòa án hoặc cơ quan nhà nước có thẩm quyền liên quan đến các
+              vấn đề: (a) tuân thủ các thủ tục pháp luật; (b) thực thi Điều khoản sử dụng; (c) phản
+              hồi các khiếu nại về việc nội dung xâm phạm đến quyền lợi của bên thứ ba; hoặc (d) bảo
+              vệ các quyền, tài sản hoặc an toàn của Circa, Khách Hàng khác và/hoặc cộng đồng
+            </p>
+          </div>
+          <li class="medium">Điều kiện giao dịch chung</li>
+          <div>
+            <p>
+              Việc đặt mua hàng hóa trên Nền Tảng Circa sẽ tuân theo Điều kiện giao dịch chung và
+              các chính sách, quy định khác được Circa ban hành và áp dụng tùy từng thời điểm.
+            </p>
+          </div>
+          <li class="medium">Vi phạm Điều khoản sử dụng</li>
+          <div>
+            Trong trường hợp Khách Hàng vi phạm bất kỳ quy định nào của Điều khoản sử dụng, Circa có
+            toàn quyền áp dụng một trong các biện pháp sau tùy theo mức độ nghiêm trọng của vi phạm:
+          </div>
+          <div class="li-lvl-1">
+            <p>
+              a. Giới hạn quyền sử dụng Tài Khoản.
+              <br />
+              b. Đình chỉ và chấm dứt Tài Khoản.
+              <br />
+              c. Thu hồi tiền/tài sản có được do hành vi gian lận, và các chi phí có liên quan như
+              chi phí vận chuyển của đơn hàng, phí thanh toán….
+              <br />
+              d. Yêu cầu cơ quan có thẩm quyền áp dụng biện pháp dân sự, bao gồm khiếu nại bồi
+              thường thiệt hại và/hoặc áp dụng các biện pháp khẩn cấp tạm thời.
+              <br />
+              e. Yêu cầu cơ quan có thẩm quyền xử lý hình sự.
+              <br />
+              f. Các hành động hoặc biện pháp chế tài khác theo Chính sách của Circa và quy định
+              pháp luật.
+              <br />
+              Nếu Khách Hàng phát hiện Khách Hàng khác trên Nền Tảng Circa của chúng tôi có hành vi
+              vi phạm Điều khoản sử dụng, vui lòng thông báo với Circa qua email
+              <a href="mailto:hotro.circa@buymed.com" class="primaryRef">hotro.circa@buymed.com</a>.
+            </p>
+          </div>
+          <li class="medium">Tranh chấp và luật áp dụng</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>10.1</strong> Các Điều khoản sử dụng này sẽ được điều chỉnh và giải thích theo
+              pháp luật Việt Nam
+            </p>
+            <p>
+              <strong>10.2</strong> Mọi tranh chấp phát sinh giữa Circa và Khách Hàng sẽ được giải
+              quyết trên cơ sở thương lượng và hòa giải. Trường hợp không đạt được thỏa thuận như
+              mong muốn, một trong hai bên có quyền đưa vụ việc ra Tòa án nhân dân có thẩm quyền tại
+              Thành phố Hồ Chí Minh để giải quyết.
+            </p>
+          </div>
+          <li class="medium">Phản hồi và đóng góp</li>
+          <div>
+            <p>
+              Circa luôn đón nhận những thông tin và phản hồi từ phía Khách Hàng. Khách Hàng có thể
+              gửi phản hồi và đóng góp cho Circa theo quy định dưới đây:
+            </p>
+            <div class="li-lvl-1">
+              <p>
+                a. Phản hồi cần được thực hiện bằng văn bản qua email hoặc các phương thức khác có
+                sẵn trên Nền Tảng Circa.
+                <br />
+                b. Tất cả các phản hồi ẩn danh đều không được chấp nhận.
+                <br />
+                c. Những phản hồi không rõ ràng và mang tính phỉ báng sẽ không được chấp nhận.
+              </p>
+            </div>
+          </div>
+          <li class="medium">Dịch vụ của Bên thứ ba</li>
+          <div>
+            <p>
+              Ngoài ra, Nền Tảng có thể chứa các đường dẫn tới sản phẩm, website, dịch vụ và các lời
+              mời chào của bên thứ ba (“<strong>Dịch Vụ Bên Thứ Ba</strong>”). Các Dịch Vụ Bên Thứ
+              Ba này không thuộc sở hữu và quản lý của Circa mà do các bên thứ ba tương ứng cung cấp
+              và thực hiện. Circa không xem xét, và không có trách nhiệm đối với những nội dung,
+              chức năng, độ an toàn, dịch vụ, các chính sách bảo mật, hoặc các hoạt động khác của
+              những bên thứ ba này. Khách Hàng có nghĩa vụ tìm hiểu các điều khoản và các chính sách
+              khác được niêm yết bởi bên thứ ba liên quan đến các Dịch Vụ Bên Thứ Ba. Trong phạm vi
+              pháp luật cho phép, Circa có thể vô hiệu hóa việc sử dụng của Khách Hàng, hoặc gỡ bỏ
+              bất kỳ Dịch Vụ Bên Thứ Ba nào trên Nền Tảng Circa phù hợp với Điều khoản sử dụng này,
+              các chính sách của Circa và quy định pháp luật.
+            </p>
+          </div>
+          <li class="medium">Khẳng định và đảm bảo của Khách Hàng</li>
+          <div>
+            <p>Khách Hàng khẳng định và đảm bảo rằng:</p>
+            <div class="li-lvl-1">
+              <p>
+                <strong>13.1</strong> Khách Hàng có đủ năng lực, quyền và khả năng hợp pháp để chấp
+                thuận và tuân thủ Điều khoản sử dụng này.
+              </p>
+              <p>
+                <strong>13.2</strong> Khách Hàng chỉ sử dụng Nền Tảng Circa cho các mục đích hợp
+                pháp và theo quy định của Điều khoản sử dụng này cũng như tất cả các luật, quy tắc,
+                quy chuẩn, chỉ thị, hướng dẫn, chính sách và quy định áp dụng.
+              </p>
+            </div>
+          </div>
+          <li class="medium">Bồi thường</li>
+          <div>
+            <p>
+              Khách Hàng đồng ý bồi thường, bảo vệ và không gây hại cho Circa liên quan đến các
+              khiếu nại, hành động, thủ tục tố tụng, và các vụ kiện cũng như nghĩa vụ, tổn thất,
+              thanh toán, khoản phạt, tiền phạt, chi phí và phí tổn có liên quan (bao gồm chi phí
+              giải quyết tranh chấp) phát sinh từ (a) vi phạm hoặc không tuân thủ bất kỳ điều khoản
+              nào trong các Điều khoản sử dụng này hoặc bất kỳ chính sách hoặc hướng dẫn nào được
+              tham chiếu theo đây, (b) việc Khách Hàng sử dụng hoặc sử dụng không đúng dịch vụ, hoặc
+              (c) vi phạm của Khách Hàng đối với bất kỳ luật hoặc bất kỳ các quyền của bên thứ ba
+              nào.
+            </p>
+          </div>
+          <li class="medium">Quy định chung</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>15.1</strong> Circa có quyền điều chỉnh Điều khoản sử dụng này vào bất cứ thời
+              điểm nào thông qua việc đăng tải các Điều khoản sử dụng được điều chỉnh lên Nền Tảng
+              Circa. Trong phạm vi pháp luật cho phép, việc Khách Hàng tiếp tục sử dụng Nền Tảng
+              Circa sau khi việc thay đổi được đăng tải sẽ cấu thành việc Khách Hàng chấp nhận các
+              Điều khoản sử dụng được điều chỉnh.
+            </p>
+            <p>
+              <strong>15.2</strong> Nếu có bất kỳ quy định nào của Điều khoản sử dụng này bị tuyên
+              vô hiệu hoặc không thể thực hiện được thì phần quy định vô hiệu hoặc không thực hiện
+              được đó không ảnh hưởng đến hiệu lực của phần còn lại và sẽ được xem như không có
+              trong Điều khoản sử dụng ngay từ đầu. Để tránh gây nhầm lẫn, quy định này không làm vô
+              hiệu bất kỳ quy định nào của Điều khoản sử dụng. Circa sẽ bằng mọi nỗ lực hợp lý thay
+              thế các điều khoản vô hiệu hoặc không thực hiện được đó bằng các điều khoản có hiệu
+              lực và có thể thực hiện được, có hiệu lực sát với hiệu lực của các điều khoản vô hiệu
+              hoặc không thực hiện được bị thay thế.
+            </p>
+            <p>
+              <strong>15.3</strong> Khách Hàng không được phép chuyển giao hoặc chuyển nhượng bất kỳ
+              quyền hoặc nghĩa vụ nào theo Điều khoản sử dụng này cho bên thứ ba nếu không có sự
+              đồng ý bằng văn bản của Circa.
+            </p>
+            <p>
+              <strong>15.4</strong> Việc Circa trì hoãn hoặc không thực hiện bất kỳ quyền hoặc biện
+              pháp khắc phục nào theo Điều khoản sử dụng này sẽ không ảnh hưởng đến quyền đó hoặc
+              biện pháp khắc phục đó hoặc cấu thành một sự từ bỏ đối với các quyền hoặc biện pháp
+              khắc phục đó.
+            </p>
+          </div>
+        </ol>
+      </section>
+
+      <section id="transaction-general-terms" class="content-section" style="display: none">
+        <h1>ĐIỀU KIỆN GIAO DỊCH CHUNG</h1>
+        <ol style="list-style-type: decimal; list-style-position: inside; margin: 0; padding: 0">
+          <li class="medium">Nguyên tắc chung</li>
+          <div>
+            <p class="content">
+              Website thương mại điện tử Circa.vn và Ứng dụng thương mại điện tử Cicra (“Sau đây gọi
+              chung là “<strong>Nền Tảng Circa</strong>”) do Công Ty TNHH Circa Pharmacy
+              (“<strong>Circa</strong>” hoặc “<strong>Công Ty</strong>”) quản lý hoạt động và vận
+              hành. Đối tượng phục vụ của Circa là tất cả Khách Hàng đang cư trú tại Việt Nam có nhu
+              cầu tìm hiểu thông tin và/hoặc liên hệ, đặt mua các hàng hóa được đăng tải trên Nền
+              Tảng Circa.
+            </p>
+          </div>
+          <li class="medium">Quy định chung</li>
+          <div>
+            <p class="title">Định nghĩa chung:</p>
+            <p class="content">
+              <strong>Nhà Bán Hàng</strong> là Công Ty TNHH Circa Pharmacy, là đơn vị sở hữu, quản
+              lý và vận hành Nền Tảng Circa.
+            </p>
+            <p class="content">
+              <strong>Khách Hàng</strong> là cá nhân từ đủ 18 tuổi và đang cư trú tại Việt Nam, có
+              nhu cầu tìm hiểu thông tin hoặc liên hệ, đặt mua các hàng hóa được đăng tải trên Nền
+              Tảng Circa của Nhà Bán Hàng hoặc các cá nhân khác truy cập Nền Tảng Circa. Khách Hàng
+              cần đăng ký tài khoản để đặt hàng và được hỗ trợ dịch vụ tốt nhất.
+            </p>
+            <p class="content">
+              <strong>Nhà Thuốc Circa</strong> là nhà thuốc thuộc sở hữu của Công Ty TNHH Circa
+              Pharmacy.
+            </p>
+          </div>
+          <li class="medium">Quy trình giao dịch chung</li>
+          <div class="li-lvl-1">
+            <p><strong>3.1 Quy trình đặt hàng</strong></p>
+            <ul style="list-style-type: disc">
+              <li><strong>Bước 1:</strong> Tìm kiếm và chọn sản phẩm cần mua.</li>
+              <li>
+                <strong>Bước 2:</strong> Xem thông tin chi tiết sản phẩm đó. Khách Hàng muốn đặt
+                hàng, Khách Hàng nhấn chọn “Số lượng” cần mua, sau đó nhấn chọn “Thêm Giỏ Hàng” và
+                tới Giỏ hàng nhấn chọn “Chọn sản phẩm” để điền thông tin nhận hàng.
+              </li>
+              <li>
+                <strong>Bước 3:</strong> Khách Hàng điền đầy đủ thông tin mua hàng theo mẫu:<br />
+                - Thông tin người nhận: Họ tên, Số điện thoại, Địa chỉ, Loại địa chỉ. <br />- Phương
+                thức nhận hàng: nhấn chọn “Nhận tại nhà thuốc” hoặc “Giao hàng tận nơi”. <br />-
+                Phương thức thanh toán: Khách Hàng thanh toán bằng tiền mặt khi nhận hàng hoặc
+                chuyển khoản trước thông qua tài khoản của Circa hoặc thông qua một đối tác cung cấp
+                dịch vụ trung gian thanh toán đã được tích hợp trên Nền Tảng Circa.
+              </li>
+              <li>
+                <strong>Bước 4:</strong> Sau khi đã nhập đầy đủ thông tin, quý khách nhận chọn “Đặt
+                hàng” để hoàn tất đặt hàng.
+              </li>
+              <li>
+                <strong>Bước 5:</strong> Sau khi nhận đơn hàng của Khách Hàng, Circa sẽ liên lạc từ
+                số hotline <a href="tel:02871016789" class="primaryRef">(028) 7101 6789</a> tới
+                Khách Hàng qua thông tin số điện thoại Khách Hàng cung cấp để xác nhận thông tin đơn
+                hàng.
+              </li>
+              <li>
+                <strong>Bước 6:</strong> Circa giao hàng tận nhà cho Khách Hàng hoặc Khách Hàng đến
+                trực tiếp Nhà Thuốc Circa để nhận hàng.
+              </li>
+            </ul>
+            <p><strong>3.2 Quy trình vận chuyển và giao nhận</strong></p>
+            <div>
+              <p>
+                a. Circa thực hiện giao hàng trên toàn quốc. Khi nhận đơn hàng từ Khách Hàng và sau
+                khi đã xác nhận thông tin mua hàng qua điện thoại, Circa sẽ tiến hành giao hàng theo
+                yêu cầu của Khách Hàng.
+              </p>
+              <p>
+                b. Khách Hàng lấy hàng trực tiếp tại Nhà Thuốc Circa sẽ đến trực tiếp cửa hàng để
+                kiểm tra và nhận hàng.
+              </p>
+
+              <p>
+                c. Circa giao hàng tận nơi trên tất cả các tỉnh, thành phố áp dụng với các hàng hóa
+                được mua bán online trên Circa.
+              </p>
+
+              <p>
+                d. Khách Hàng vui lòng tham khảo Chính sách vận chuyển và giao nhận để nắm rõ cách
+                thức Circa thực hiện việc vận chuyển và giao nhận hàng hóa đến Khách Hàng.
+              </p>
+            </div>
+            <p><strong>3.3 Chính sách trả hàng và hoàn tiền</strong></p>
+            <div>
+              <p>
+                a. Khách Hàng có thể đổi trả sản phẩm đã mua trên Nền Tảng Circa với điều kiện đơn
+                hàng phải có thông tin số điện thoại và trong vòng 07 ngày kể từ ngày nhận hàng.
+              </p>
+
+              <p>
+                b. Trường hợp đổi trả do lỗi của Nhà sản xuất hoặc liên quan đến chất lượng hàng
+                hóa: Circa áp dụng miễn phí đổi trả áp dụng cho tất cả các sản phẩm đang kinh doanh
+                tại Nền Tảng Circa (trừ các sản phẩm ở mục 3.3.d).
+              </p>
+
+              <p>
+                c. Circa áp dụng đổi trả cho các sản phẩm đang kinh doanh (dạng vỉ, ống uống, gói,
+                chai, tuýp, hộp). Tuy nhiên, hàng đổi, trả phải còn nguyên vẹn chưa sử dụng, còn tem
+                niêm phong, hộp không bị móp méo, nếu vỏ hộp bị mất hoặc móp méo sẽ tính phí vỏ hộp
+                theo quy định của Circa.
+              </p>
+
+              <p>
+                d. Không áp dụng đổi trả: Hàng đặt riêng theo yêu cầu Khách Hàng, không xác định
+                được tính nguyên vẹn của sản phẩm, thuốc viên bán lẻ (không vỉ, không hộp), hàng trữ
+                lạnh, thuốc tiêm chích, vớ y khoa.
+              </p>
+
+              <p>
+                e. Đối với các sản phẩm đã xuất hóa đơn tài chính, Khách Hàng sẽ chịu chi phí thanh
+                toán 10%/ hóa đơn khi trả hàng.
+              </p>
+            </div>
+            <p><strong>3.4 Chính sách kiểm hàng</strong></p>
+            <div>
+              <p>
+                Hiện tại, Circa đang cho phép Khách Hàng kiểm tra tất cả hàng hóa trước khi thanh
+                toán:
+              </p>
+              <p>
+                Trước khi thanh toán nếu phát hiện kiện hàng có dấu hiệu móp méo, không còn nguyên
+                vẹn hoặc sai thông tin người nhận, Khách Hàng có quyền từ chối nhận hàng. Trong
+                trường hợp này, Khách Hàng phải thông báo cho Bộ phận chăm sóc Khách Hàng của
+                Circa(“<strong>CSKH</strong>”) qua các kênh ở Mục 3.5 để CSKH hủy đơn hàng/giao bù.
+              </p>
+              <p>
+                Trường hợp sau khi đã kiểm tra hàng hóa thì dù bất cứ lý do gì, Khách Hàng vẫn phải
+                nhận hàng và thanh toán đúng số tiền trên phiếu giao hàng. Sau đó nếu Khách Hàng
+                phát hiện ra hàng hóa có lỗi (Hàng nhận được bị thiếu/sai/bể vỡ/khác mô tả/đã qua sử
+                dụng) thì Khách Hàng có thể gửi khiếu nại theo quy trình giải quyết khiếu nại trên
+                Nền Tảng Circa và chờ phản hồi kết quả giải quyết khiếu nại. Trong trường hợp này,
+                Khách Hàng phải cung cấp video/hình ảnh khi Khách Hàng nhận và kiểm hàng để Circa có
+                cơ sở giải quyết khiếu nại.
+              </p>
+            </div>
+            <p><strong>3.5 Các kênh hỗ trợ giao dịch và tiếp nhận thông tin</strong></p>
+            <div>
+              <p>
+                Circa thực hiện hỗ trợ giao dịch và tiếp nhận thông tin từ Khách Hàng qua các kênh
+                sau:
+              </p>
+
+              <p>a. Qua fanpage facebook, website liên hệ, bình luận Khách Hàng;</p>
+
+              <p>
+                b. Qua tổng đài giải quyết khiếu nại:
+                <a href="tel:02871016789" class="primaryRef">(028) 7101 6789</a>; và
+              </p>
+
+              <p>
+                c. Qua email:
+                <a href="mailto:hotro.circa@buymed.com" class="primaryRef"
+                  >hotro.circa@buymed.com</a
+                >
+              </p>
+            </div>
+          </div>
+          <li class="medium">Quy trình thanh toán cho Khách Hàng</li>
+          <div class="li-lvl-1">
+            <p>
+              Khách Hàng có thể lựa chọn một trong các phương thức thanh toán sau đây khi mua hàng
+              trên Nền Tảng Circa:
+            </p>
+            <p>
+              <strong
+                >4.1 Cách 1: Thanh toán trực tiếp khi Khách Hàng nhận hàng tại Nhà thuốc
+                Circa</strong
+              >
+            </p>
+            <ul style="list-style-type: disc">
+              <li>
+                <strong>Bước 1:</strong> Khách Hàng đặt hàng trên Nền Tảng Circa và chọn “Nhận tại
+                nhà thuốc”.
+              </li>
+              <li><strong>Bước 2:</strong> Khách Hàng đến địa chỉ Nhà Thuốc Circa.</li>
+              <li>
+                <strong>Bước 3:</strong> Khách Hàng thanh toán bằng tiền mặt, chuyển khoản trước
+                thông qua tài khoản của Circa hoặc thông qua một đối tác cung cấp dịch vụ trung gian
+                thanh toán đã được tích hợp trên Nền Tảng Circa và nhận hàng.
+              </li>
+            </ul>
+            <p>
+              <strong>4.2 Cách 2: Thanh toán sau (COD – giao hàng và thu tiền tận nơi)</strong>
+            </p>
+            <ul style="list-style-type: disc">
+              <li>
+                <strong>Bước 1:</strong> Khách Hàng tìm hiểu thông tin về sản phẩm trên Nền Tảng
+                Circa.
+              </li>
+              <li><strong>Bước 2:</strong> Khách Hàng đặt hàng.</li>
+              <li><strong>Bước 3:</strong> Circa xác nhận đơn hàng với Khách Hàng.</li>
+              <li>
+                <strong>Bước 4:</strong> Circa vận chuyển hàng đến địa chỉ nhận hàng mà Khách Hàng
+                đã cung cấp.
+              </li>
+              <li>
+                <strong>Bước 5:</strong> Khách Hàng nhận hàng và thanh toán bằng tiền mặt hoặc thanh
+                toán trực tuyến.
+              </li>
+            </ul>
+
+            <p>
+              <strong>4.3 Cách 3: Thanh toán trực tuyến khi đặt hàng</strong>
+            </p>
+            <ul style="list-style-type: disc">
+              <li>
+                <strong>Bước 1:</strong> Khách Hàng tìm hiểu thông tin về sản phẩm, dịch vụ được
+                đăng tin.
+              </li>
+              <li>
+                <strong>Bước 2:</strong> Khách Hàng đặt hàng và thực hiện thanh toán trực tuyến bằng
+                hình thức chuyển khoản để thanh toán hoặc thông qua một đối tác cung cấp dịch vụ
+                trung gian thanh toán đã được tích hợp trên Nền Tảng Circa.
+              </li>
+              <li><strong>Bước 3:</strong> Circa xác nhận đơn hàng với Khách Hàng.</li>
+              <li>
+                <strong>Bước 4:</strong> Circa vận chuyển hàng đến địa chỉ nhận hàng mà Khách Hàng
+                đã cung cấp.
+              </li>
+            </ul>
+            <br />
+          </div>
+          <li class="medium">Đảm bảo an toàn giao dịch</li>
+          <div>
+            <p>
+              Circa sử dụng các dịch vụ để bảo vệ thông tin về nội dung mà Circa đăng tải trên Nền
+              Tảng Circa. Để đảm bảo các giao dịch được tiến hành thành công, hạn chế tối đa rủi ro
+              có thể phát sinh, Khách Hàng nên cung cấp thông tin đầy đủ (tên, địa chỉ, số điện
+              thoại, email) khi tham gia mua hàng để Circa có thể liên hệ với Khách Hàng trong
+              trường hợp đơn hàng xảy ra lỗi.
+            </p>
+
+            <p>
+              Khi Khách Hàng nhận hàng tại địa chỉ của Khách Hàng, Khách Hàng chỉ nên thanh toán sau
+              khi đã kiểm tra chi tiết hàng hoá và hài lòng với sản phẩm mà Khách Hàng nhận được.
+            </p>
+
+            <p>
+              Khi Khách Hàng thanh toán trực tuyến, Khách Hàng nên tự mình thực hiện và không được
+              để lộ thông tin tài khoản chuyển khoản. Circa không trực tiếp lưu trữ thông tin tài
+              khoản thanh toán của Khách Hàng sau khi thanh toán, mà thông qua hệ thống của ngân
+              hàng liên kết và đối tác cung cấp dịch vụ trung gian thanh toán nên tuyệt đối bảo mật
+              thông tin tài khoản ngân hàng cho Khách Hàng.
+            </p>
+
+            <p>
+              Trong trường lỗi xảy ra trong quá trình thanh toán trực tuyến, Circa sẽ là đơn vị giải
+              quyết cho Khách Hàng trong vòng 5 ngày làm việc từ khi tiếp nhận thông tin từ người
+              thực hiện giao dịch.
+            </p>
+          </div>
+          <li class="medium">Bảo vệ thông tin cá nhân Khách Hàng</li>
+          <div>
+            <p>
+              Circa cam kết sẽ bảo mật các thông tin cá nhân của Khách Hàng phù hợp với các quy định
+              pháp luật. Khách Hàng vui lòng đọc bản “Chính sách bảo vệ dữ liệu cá nhân” dưới đây để
+              hiểu hơn những cam kết của Circa nhằm tôn trọng và bảo vệ thông tin cá nhân của Khách
+              Hàng.
+            </p>
+          </div>
+          <li class="medium">Quản lý thông tin xấu</li>
+          <div>
+            <p>
+              Khách Hàng sẽ tự chịu trách nhiệm về bảo mật và lưu giữ mọi hoạt động sử dụng Nền Tảng
+              Circa dưới tên đăng ký, mật khẩu của mình. Khách Hàng có trách nhiệm thông báo kịp
+              thời cho Circa về những hành vi sử dụng trái phép, lạm dụng, vi phạm bảo mật, lưu giữ
+              tên đăng ký và mật khẩu của bên thứ ba để có biện pháp giải quyết phù hợp.
+            </p>
+            <p>
+              Khách Hàng không được thay đổi, chỉnh sửa, gán ghép, sao chép, truyền bá, phân phối,
+              cung cấp và tạo những công cụ tương tự của Nền Tảng Circa để cung cấp cho một bên thứ
+              ba nếu không được Circa đồng ý.
+            </p>
+            <p>
+              Khách Hàng không được hành động gây mất uy tín của Circa dưới mọi hình thức như gây
+              mất đoàn kết giữa các Khách Hàng khác bằng cách sử dụng tên đăng ký thứ hai, thông qua
+              một bên thứ ba hoặc tuyên truyền, phổ biến những thông tin không có lợi cho uy tín của
+              Circa.
+            </p>
+          </div>
+          <li class="medium">Trách nhiệm trong trường hợp phát sinh lỗi kỹ thuật</li>
+          <div>
+            <p>
+              Circa cam kết nỗ lực đảm bảo sự an toàn và ổn định của toàn bộ hệ thống kỹ thuật. Tuy
+              nhiên, trong trường hợp xảy ra sự cố do lỗi của Circa, Circa sẽ ngay lập tức áp dụng
+              các biện pháp để đảm bảo quyền lợi cho Khách Hàng.
+            </p>
+
+            <p>
+              Khi thực hiện các giao dịch trên Circa, bắt buộc các thành viên phải thực hiện đúng
+              theo các quy trình hướng dẫn.
+            </p>
+
+            <p>
+              Circa cam kết cung cấp chất lượng dịch vụ tốt nhất cho Khách Hàng tham gia giao dịch.
+              Trường hợp phát sinh lỗi kỹ thuật, lỗi phần mềm hoặc các lỗi khách quan khác dẫn đến
+              Khách Hàng không thể tham gia giao dịch thì Khách Hàng thông báo cho Circa qua địa chỉ
+              email
+              <a href="mailto:hotro.circa@buymed.com" class="primaryRef">hotro.circa@buymed.com</a>
+              hoặc qua điện thoại
+              <a href="tel:02871016789" class="primaryRef">(028) 71016789</a> (9h – 18h hằng ngày),
+              Circa sẽ khắc phục lỗi trong thời gian sớm nhất, tạo điều kiện cho Khách Hàng sử dụng
+              Nền Tảng Circa.
+            </p>
+
+            <p>
+              Trong phạm vi pháp luật cho phép, Circa sẽ không chịu trách nhiệm giải quyết các yêu
+              cầu trong trường hợp Circa không nhận được thông báo từ Khách Hàng hoặc liên quan đến
+              sự cố phát sinh từ lỗi kỹ thuật, lỗi đường truyền, phần mềm hoặc các lỗi khác không do
+              Circa gây ra.
+            </p>
+          </div>
+          <li class="medium">Quyền và nghĩa vụ của Circa</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>9.1 Quyền của Circa</strong>
+            </p>
+            <p>
+              a. Circa sẽ tiến hành cung cấp các dịch vụ, sản phẩm cho Khách Hàng sau khi đã hoàn
+              thành các thủ tục và đáp ứng các điều kiện bắt buộc theo quy định pháp luật.
+            </p>
+            <p>
+              b. Circa sẽ tiến hành xây dựng, công bố và điều chỉnh các chính sách trên Nền Tảng
+              Circa phù hợp với quy định pháp luật.
+            </p>
+            <p>
+              c. Trong trường hợp có cơ sở để chứng minh Khách Hàng cung cấp thông tin cho Circa
+              không chính xác, sai lệch, không đầy đủ hoặc có dấu hiệu vi phạm pháp luật hay thuần
+              phong mỹ tục Việt Nam thì Circa có quyền từ chối, tạm ngừng hoặc chấm dứt quyền mua
+              hàng hóa, sử dụng dịch vụ của Khách Hàng.
+            </p>
+            <p>
+              d. Circa có thể tạm khóa hoặc chấm dứt quyền sử dụng tài khoản của Khách Hàng và quyền
+              sử dụng Nền Tảng Circa của Khách Hàng trong trường hợp Khách Hàng vi phạm bất kỳ chính
+              sách nào của Circa, hoặc có những hành vi mà Circa xem là ảnh hưởng đến hoạt động kinh
+              doanh của Nền Tảng Circa.
+            </p>
+            <p>
+              e. Circa có thể tạm khóa hoặc chấm dứt ngay lập tức quyền sử dụng Nền Tảng Circa và
+              tài khoản của Khách Hàng nếu Circa phát hiện Khách Hàng tiếp tục có các hoạt động có
+              thể khiến Circa chịu trách nhiệm pháp lý, có những hoạt động lừa đảo, giả mạo, gây rối
+              loạn thị trường, gây mất đoàn kết đối với các Khách Hàng khác của Circa, hoặc hoạt
+              động vi phạm pháp luật hiện hành của Việt Nam. Trong trường hợp chấm dứt quyền sử dụng
+              Nền Tảng Circa của Khách Hàng thì tất cả các chứng nhận, các quyền truy cập của Khách
+              Hàng được cấp sẽ mặc nhiên hết giá trị và bị chấm dứt.
+            </p>
+            <p>
+              f. Circa giữ tất cả quyền sở hữu trí tuệ đối với các dịch vụ, hàng hóa và các nội dung
+              khác trên Nền Tảng Circa theo các quy định pháp luật. Tất cả các biểu tượng, nội dung
+              theo các ngôn ngữ khác nhau phát sinh trên Nền Tảng Circa đều thuộc quyền sở hữu của
+              Circa và Circa nghiêm cấm mọi hành vi sao chép, sử dụng và phổ biến bất hợp pháp các
+              quyền sở hữu trên.
+            </p>
+            <p>
+              g. Trong phạm vi pháp luật cho phép, Circa có toàn quyền thay đổi, bổ sung giá hàng
+              hóa, dịch vụ và phương thức thanh toán trong thời gian cung cấp dịch vụ cho Khách Hàng
+              theo nhu cầu và điều kiện khả năng của Circa.
+            </p>
+            <p><strong>9.2 Nghĩa vụ của Circa</strong></p>
+            <p>
+              a. Circa chịu trách nhiệm xây dựng dịch vụ bao gồm một số công việc chính như: nghiên
+              cứu, thiết kế, mua sắm các thiết bị phần cứng và phần mềm, kết nối internet, xây dựng
+              các chính sách phục vụ cho hoạt động Nền Tảng Circa trong điều kiện và phạm vi cho
+              phép.
+            </p>
+            <p>
+              b. Circa sẽ tiến hành triển khai và hợp tác với các đối tác trong việc xây dựng hệ
+              thống các dịch vụ, các công cụ tiện ích phục vụ cho việc giao dịch của Khách Hàng tham
+              gia trên Nền Tảng Circa.
+            </p>
+            <p>
+              c. Circa sẽ nỗ lực trong phạm vi và điều kiện có thể để duy trì hoạt động bình thường
+              của Nền Tảng Circa và khắc phục các sự cố như: sự cố kỹ thuật về máy móc, lỗi phần
+              mềm, hệ thống đường truyền internet, nhân sự, các biến động xã hội, thiên tai, mất
+              điện, các quyết định của cơ quan nhà nước hay một tổ chức liên quan thứ ba. Tuy nhiên
+              nếu những sự cố trên xảy ra nằm ngoài khả năng kiểm soát, là những trường hợp bất khả
+              kháng mà gây thiệt hại cho Khách Hàng thì Circa sẽ được miễn trừ trách nhiệm theo quy
+              định pháp luật.
+            </p>
+            <p>
+              d. Circa không kinh doanh hoặc đăng tải thông tin các hàng hóa, dịch vụ thuộc danh mục
+              hàng hóa, dịch vụ cấm kinh doanh theo quy định của pháp luật và hàng hóa hạn chế kinh
+              doanh theo quy định tại Thông tư 47/2014/TT-BCT.
+            </p>
+          </div>
+          <li class="medium">Quyền và nghĩa vụ của Khách Hàng</li>
+          <div class="li-lvl-1">
+            <p><strong>10.1 Quyền của Khách Hàng</strong></p>
+            <p>
+              a. Khi đăng ký trở Khách Hàng trên Circa và được Circa cấp tài khoản, Khách Hàng sẽ
+              được mua hàng hóa, dịch vụ trên Nền Tảng Circa.
+            </p>
+            <p>
+              b. Khách Hàng sẽ được cấp một tên đăng ký và mật khẩu riêng để mua hàng hóa trên Nền
+              Tảng Circa.
+            </p>
+            <p>
+              c. Khách Hàng sẽ được Circa hướng dẫn sử dụng được các công cụ, các tính năng phục vụ
+              cho việc mua hàng hóa và sử dụng các Dịch Vụ trên Nền Tảng Circa.
+            </p>
+            <p>
+              d. Khách Hàng có quyền đóng góp ý kiến cho Circa trong quá trình hoạt động. Các kiến
+              nghị được gửi trực tiếp bằng thư, email hoặc các phương thức phù hợp khác đến cho
+              Circa.
+            </p>
+            <p><strong>10.2 Nghĩa vụ của Khách Hàng</strong></p>
+            <p>
+              a. Khách Hàng sẽ tự chịu trách nhiệm về bảo mật và lưu giữ và mọi hoạt động sử dụng
+              dịch vụ dưới tên đăng ký và mật khẩu của mình.
+            </p>
+            <p>
+              b. Khách Hàng có trách nhiệm thông báo kịp thời cho Circa về những hành vi sử dụng
+              trái phép, lạm dụng, vi phạm bảo mật, lưu giữ trái phép tên đăng ký và mật khẩu của
+              mình để hai bên cùng hợp tác xử lý.
+            </p>
+            <p>
+              c. Khách Hàng cam kết và đồng ý không sử dụng hàng hóa, dịch vụ của Circa vào những
+              mục đích bất hợp pháp, lừa đảo, đe doạ, thăm dò thông tin bất hợp pháp, phá hoại, tạo
+              và phát tán virus gây hư hại tới hệ thống, cấu hình, việc truyền tải thông tin của Nền
+              Tảng Circa, đầu cơ, lũng đoạn thị trường, tạo những đơn đặt hàng, kể cả phục vụ cho
+              việc phán đoán nhu cầu thị trường. Trong trường hợp vi phạm thì Khách Hàng phải chịu
+              trách nhiệm về các hành vi của mình trước pháp luật.
+            </p>
+            <p>
+              d. Khách Hàng cam kết những thông tin cung cấp cho Circa và những thông tin đăng tải
+              trên Nền Tảng Circa là chính xác.
+            </p>
+            <p>
+              e. Khách Hàng cam kết không được thay đổi, chỉnh sửa, sao chép, truyền bá, phân phối,
+              cung cấp và tạo những công cụ tương tự của Circa cho bất kỳ bên thứ ba nếu không được
+              sự đồng ý của Circa.
+            </p>
+            <p>
+              f. Khách Hàng không được hành động gây mất uy tín của Circa dưới mọi hình thức như gây
+              mất đoàn kết giữa các Khách Hàng bằng cách sử dụng tên đăng ký thứ hai, thông qua một
+              bên thứ ba hoặc tuyên truyền, phổ biến những thông tin không có lợi cho uy tín của
+              Circa.
+            </p>
+          </div>
+          <li class="medium">Điều khoản áp dụng</li>
+          <div class="li-lvl-1">
+            <p>
+              <strong>11.1</strong> Mọi tranh chấp phát sinh giữa Circa và Khách Hàng sẽ được giải
+              quyết trên cơ sở thương lượng và hòa giải. Trong trường hợp không đạt được thỏa thuận
+              như mong muốn, một trong hai bên có quyền đưa vụ việc ra Tòa án nhân dân có thẩm quyền
+              tại Thành phố Hồ Chí Minh để giải quyết.
+            </p>
+            <p>
+              <strong>11.2</strong> Circa có quyền sửa đổi, bổ sung Điều khoản giao dịch chung bằng
+              cách thông báo trên Nền Tảng và qua các cách thức khác phù hợp quy định pháp luật.
+              Điều khoản giao dịch chung sửa đổi, bổ sung sẽ có hiệu lực kể từ thời điểm được thông
+              báo và đăng tải công khai trên Nền Tảng Circa. Trong phạm vi pháp luật cho phép, việc
+              Khách Hàng tiếp tục truy cập và mua hàng hóa trên Nền Tảng Circa sau khi Điều khoản
+              giao dịch chung sửa đổi, bổ sung có hiệu lực đồng nghĩa với việc Khách Hàng đã chấp
+              nhận Điều khoản giao dịch chung sửa đổi, bổ sung tương ứng.
+            </p>
+          </div>
+        </ol>
+      </section>
+
+      <section id="personal-data-protection-terms" class="content-section" style="display: none">
+        <h1>CHÍNH SÁCH BẢO VỆ DỮ LIỆU CÁ NHÂN</h1>
+        <p>Cập nhật ngày 22/02/2024</p>
+        <p class="content">
+          Circa hiểu rằng những người dùng của chúng tôi quan tâm đến dữ liệu cá nhân của họ và cách
+          mà dữ liệu đó được thu thập, sử dụng, chia sẻ và xử lý. Chúng tôi cam kết sẽ xử lý dữ liệu
+          cá nhân của bạn phù hợp với quy định của pháp luật khi bạn sử dụng bất kỳ tính năng, chức
+          năng, hoặc trò chơi trên điện thoại nào khả dụng trên Nền Tảng hoặc Dịch Vụ của chúng tôi,
+          tương tác với chúng tôi thông qua một dịch vụ, ứng dụng bên ngoài, ký kết các hợp đồng,
+          các tài liệu liên quan đến việc sử dụng Nền Tảng hoặc Dịch Vụ hoặc thông qua các nhân viên
+          dịch vụ khách hàng của chúng tôi, hoặc truy cập vào Dịch Vụ hoặc Nền Tảng của chúng tôi
+          thông qua máy vi tính, thiết bị di động, hoặc bất kỳ thiết bị nào khác có kết nối Internet
+          của bạn.
+        </p>
+        <p class="content">
+          VUI LÒNG ĐỌC KỸ CHÍNH SÁCH BẢO VỆ DỮ LIỆU CÁ NHÂN NÀY. BẰNG CÁCH NHẤP VÀ ĐÁNH DẤU VÀO CÁC
+          TUYÊN BỐ “TÔI ĐỒNG Ý VỚI CHÍNH SÁCH BẢO VỆ DỮ LIỆU CÁ NHÂN CỦA CIRCA” HOẶC CÁC TUYÊN BỐ
+          TƯƠNG TỰ ĐƯỢC HIỂN THỊ TẠI TRANG ĐĂNG KÝ CỦA CIRCA HOẶC TRONG QUÁ TRÌNH CUNG CẤP CÁC DỊCH
+          VỤ HOẶC QUYỀN TRUY CẬP VÀO NỀN TẢNG CHO BẠN, BẠN XÁC NHẬN RẰNG BẠN ĐÃ ĐỌC VÀ HIỂU CÁC ĐIỀU
+          KHOẢN CỦA CHÍNH SÁCH BẢO VỆ DỮ LIỆU CÁ NHÂN NÀY VÀ BẠN ĐÃ ĐỒNG Ý VÀ CHO PHÉP CIRCA THỰC
+          HIỆN VIỆC THU THẬP, SỬ DỤNG, TIẾT LỘ, LƯU TRỮ, CHUYỂN GIAO VÀ/HOẶC XỬ LÝ DỮ LIỆU CÁ NHÂN
+          CỦA BẠN NHƯ ĐƯỢC MÔ TẢ VÀ QUY ĐỊNH TẠI CHÍNH SÁCH BẢO VỆ DỮ LIỆU CÁ NHÂN NÀY.
+        </p>
+        <ol style="list-style-type: decimal; list-style-position: inside; margin: 0; padding: 0">
+          <li class="medium">Giới thiệu về Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này</li>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>1.1</strong> Circa và các bên liên kết của Circa (được gọi chung hoặc gọi
+              riêng là “<strong>Circa</strong>” hoặc “<strong>chúng tôi</strong>”) rất tôn trọng
+              quyền riêng tư của bạn. Tại Việt Nam, pháp nhân Circa giữ vai trò là Bên Kiểm soát và
+              xử lý dữ liệu cá nhân của bạn sẽ là <strong>Công Ty TNHH Circa Pharmacy</strong>.
+            </p>
+            <p class="content">
+              <strong>1.2</strong> Trong quá trình bạn sử dụng các ứng dụng và trang web của Circa,
+              cũng như các sản phẩm, thông tin, chức năng và các dịch vụ khác do Circa vận hành,
+              chúng tôi sẽ thu thập, sử dụng, tiết lộ, lưu trữ và/hoặc xử lý dữ liệu cá nhân của
+              bạn, bao gồm cả dữ liệu cá nhân nhạy cảm. Trong Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này,
+              “<strong>Nền Tảng</strong>” có nghĩa là tất cả các ứng dụng và trang web do chúng tôi
+              sở hữu, và các “<strong>Dịch Vụ</strong>” có nghĩa là tất cả các sản phẩm, thông tin,
+              chức năng và dịch vụ do Circa cung cấp theo từng thời điểm trên (các) Nền Tảng.
+            </p>
+            <p class="content">
+              <strong>1.3</strong> Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này thiết lập để giúp bạn biết
+              được cách thức chúng tôi thu thập, sử dụng, tiết lộ, lưu trữ và/hoặc xử lý dữ liệu mà
+              chúng tôi thu thập và nhận được trong quá trình cung cấp cho bạn các Dịch Vụ hoặc
+              quyền truy cập vào Nền Tảng, người dùng của chúng tôi, cho dù bạn đã đăng ký sử dụng
+              Nền Tảng của chúng tôi với tư cách là Khách Hàng (như được định nghĩa trong Điều Khoản
+              Sử Dụng) hay chưa. Chúng tôi sẽ chỉ thu thập, sử dụng, tiết lộ, lưu trữ và/hoặc xử lý
+              dữ liệu cá nhân của bạn theo Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này.
+            </p>
+            <p class="content">
+              <strong>1.4</strong> Chúng tôi có thể cập nhật Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này
+              tại từng thời điểm. Bất kỳ thay đổi nào được chúng tôi thực hiện đối với Chính Sách
+              Bảo Vệ Dữ Liệu Cá Nhân này trong tương lai sẽ được cập nhật trên trang này và những
+              thay đổi quan trọng sẽ được thông báo đến bạn. Trong phạm vi pháp luật cho phép, việc
+              bạn tiếp tục sử dụng các Dịch Vụ hoặc truy cập vào Nền Tảng, bao gồm việc đặt các Đơn
+              Đặt Hàng trên Nền Tảng, đồng ý rõ ràng thông qua chức năng bật/tắt sự đồng ý của bạn
+              trên Nền Tảng hoặc thể hiện sự đồng ý rõ ràng bằng các hình thức khác đối với việc
+              tiếp tục sử dụng các Dịch Vụ hoặc truy cập vào Nền Tảng, sau những điều chỉnh, cập
+              nhật, hoặc sửa đổi của Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này (cho dù bạn đã xem xét
+              tài liệu điều chỉnh, cập nhật hoặc sửa đổi đó hay chưa) sẽ cấu thành việc xác nhận và
+              sự chấp thuận của bạn về những thay đổi mà chúng tôi thực hiện đối với Chính Sách Bảo
+              Vệ Dữ Liệu Cá Nhân này. Bạn đồng ý rằng bạn có trách nhiệm thường xuyên xem xét và
+              kiểm tra Chính Sách Bảo Vệ Dữ Liệu Cá Nhân để biết nếu có bất kỳ cập nhật hoặc thay
+              đổi nào đã được thực hiện đối với Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này.
+            </p>
+            <p class="content">
+              <strong>1.5</strong> Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này được áp dụng cùng với các
+              thông báo, các điều khoản hợp đồng và điều khoản sử dụng khác được áp dụng liên quan
+              đến việc chúng tôi thu thập, lưu trữ, sử dụng, tiết lộ và/hoặc xử lý dữ liệu cá nhân
+              của bạn và không nhằm mục đích thay thế các thông báo, các điều khoản hợp đồng và điều
+              khoản sử dụng đó trừ khi được chúng tôi tuyên bố khác đi một cách rõ ràng.
+            </p>
+            <p class="content">
+              <strong>1.6</strong> Tất cả các điều khoản trong Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này
+              được áp dụng cho người dùng của Circa, cho dù người dùng đã đăng ký là Khách Hàng hay
+              chưa.
+            </p>
+          </div>
+          <li class="medium">Dữ liệu cá nhân chúng tôi thu thập từ bạn</li>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>2.1</strong> Chúng tôi thu thập các dữ liệu cá nhân bên dưới phù hợp với pháp
+              luật Việt Nam, và sau khi nhận được sự đồng ý của bạn nếu pháp luật có yêu cầu.
+            </p>
+            <p class="content">
+              <strong>2.2 “Dữ liệu cá nhân”</strong> là thông tin dưới dạng ký hiệu, chữ viết, chữ
+              số, hình ảnh, âm thanh hoặc dạng tương tự trên môi trường điện tử gắn liền với một con
+              người cụ thể hoặc giúp xác định một con người cụ thể. Dữ liệu cá nhân bao gồm dữ liệu
+              cá nhân cơ bản và dữ liệu cá nhân nhạy cảm.
+            </p>
+            <p class="content">
+              <strong>2.3</strong> Tùy thuộc vào việc bạn sử dụng Nền Tảng và Dịch Vụ của chúng tôi
+              (chẳng hạn khi đăng ký sử dụng các Dịch Vụ của chúng tôi và/hoặc đăng nhập vào Nền
+              Tảng), bạn có thể được yêu cầu cung cấp cho chúng tôi một số dữ liệu cá nhân nhất
+              định. Tuy nhiên, bạn có thể chọn không cung cấp cho chúng tôi một số dữ liệu cá nhân
+              nhất định và bạn có thể không được hưởng các lợi ích từ các Dịch Vụ mà chúng tôi cung
+              cấp cho bạn. Dữ liệu cá nhân mà bạn có thể lựa chọn cung cấp cho chúng tôi bao gồm
+              nhưng không giới hạn:
+            </p>
+            <div class="li-lvl-2">
+              <p class="content">(a) Dữ Liệu Cá Nhân Cơ Bản bao gồm nhưng không giới hạn:</p>
+              <div class="li-lvl-1">
+                <p class="content">
+                  i. Dữ Liệu Định Danh có thể bao gồm họ tên, ngày sinh, giới tính, tên truy cập và
+                  mật khẩu, địa chỉ thư điện tử, số điện thoại, sở thích và bất kỳ dữ liệu cá nhân
+                  trong bất kỳ hình ảnh hoặc video hoặc bản thu âm nào mà bạn đăng tải trên Nền Tảng
+                  của chúng tôi.
+                </p>
+                <p class="content">
+                  ii. Dữ Liệu Sử Dụng, có thể bao gồm các thông tin về thời gian và cách thức bạn sử
+                  dụng Nền Tảng, sản phẩm và Dịch Vụ hoặc việc xem các nội dung trên Nền Tảng, cũng
+                  như các trang web mà bạn đã ghé trước khi vào Nền Tảng và các số liệu tương tự
+                  khác.
+                </p>
+                <p class="content">
+                  iii. Dữ Liệu Tiếp Thị và Truyền Thông, có thể bao gồm sở thích của bạn, kết quả
+                  khảo sát, sở thích khi nhận thông tin tiếp thị từ chúng tôi và các sở thích truyền
+                  thông của bạn, sở thích của bạn đối với các hàng hóa hoặc dịch vụ cụ thể, cũng như
+                  là góp ý của bạn, cuộc trò chuyện, thư điện tử và lịch sử cuộc gọi của bạn trên
+                  Nền Tảng hoặc với bên thứ ba cung cấp dịch vụ.
+                </p>
+              </div>
+            </div>
+            <div class="li-lvl-2">
+              <p class="content">
+                (b) Dữ Liệu Cá Nhân Nhạy Cảm, có thể bao gồm quan điểm chính trị, quan điểm tôn
+                giáo; tình trạng sức khỏe và đời tư được ghi trong hồ sơ bệnh án (không bao gồm
+                thông tin về nhóm máu); thông tin liên quan đến nguồn gốc chủng tộc, nguồn gốc dân
+                tộc; thông tin về đặc điểm di truyền được thừa hưởng hoặc có được của cá nhân; thông
+                tin về thuộc tính vật lý, đặc điểm sinh học riêng của bạn; thông tin về đời sống
+                tình dục, xu hướng tình dục của bạn; dữ liệu về tội phạm, hành vi phạm tội được thu
+                thập, lưu trữ bởi các cơ quan thực thi pháp luật; Dữ Liệu Tài Khoản và Giao Dịch và
+                Dữ Liệu Vị Trí như mô tả bên dưới.
+              </p>
+              <div class="li-lvl-1">
+                <p class="content">
+                  i. Dữ Liệu Tài Khoản và Giao Dịch, có thể bao gồm thông tin thẻ tín dụng, thông
+                  tin tài khoản ngân hàng, thông tin ví điện tử, sao kê tài khoản ngân hàng của bạn,
+                  địa chỉ xuất hóa đơn/địa chỉ giao hàng của bạn, khoản thanh toán và các đơn hàng
+                  gửi đến và nhận từ bạn, và các thông tin khác về sản phẩm và dịch vụ mà bạn đã
+                  cung cấp cho hoặc mua thông qua Nền Tảng.
+                </p>
+                <p class="content">
+                  ii. Dữ Liệu Vị Trí, bao gồm thông tin vị trí khi bạn kiểm tra các thông tin mua
+                  bán sản phẩm ở gần bạn hoặc khi kiểm tra tình trạng giao hàng/tình trạng lấy đơn
+                  hàng.
+                </p>
+              </div>
+            </div>
+            <p class="content">
+              <strong>2.4</strong> Chúng tôi thực hiện thu thập và xử lý tự động một số loại dữ liệu
+              nhất định khi bạn sử dụng các thiết bị của bạn để truy cập vào Nền Tảng của chúng tôi
+              và tương tác với các Dịch Vụ của chúng tôi theo các mục đích đã được thể hiện ở Chính
+              Sách Bảo Vệ Dữ Liệu Cá Nhân này.
+            </p>
+          </div>
+          <div>
+            <p class="title">Cách thức chúng tôi tiếp nhận và thu thập dữ liệu cá nhân của bạn</p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>2.5</strong> Trong quá trình bạn sử dụng Nền Tảng và trong quá trình chúng tôi
+              cung cấp các Dịch Vụ, chúng tôi có thể tiếp nhận và thu thập dữ liệu cá nhân của bạn
+              trong các trường hợp như sau:
+            </p>
+            <div class="li-lvl-2">
+              <p class="content">(a) Khi bạn truy cập các Nền Tảng của chúng tôi;</p>
+              <p class="content">
+                (b) Khi bạn tạo tài khoản, đăng ký hoặc giao kết hợp đồng với chúng tôi (với tư cách
+                là Khách Hàng hoặc tư cách khác);
+              </p>
+              <p class="content">
+                (c) Khi bạn đăng ký sử dụng, hoặc sử dụng theo bất kỳ hình thức nào khác bất kỳ Dịch
+                Vụ nào trên Nền Tảng của chúng tôi và/hoặc trên các nền tảng của những bên liên kết
+                của chúng tôi;
+              </p>
+              <p class="content">
+                (d) Khi bạn thực hiện một giao dịch liên quan đến những sản phẩm có sẵn trên Nền
+                Tảng;
+              </p>
+              <p class="content">
+                (e) Khi bạn kích hoạt hoặc sử dụng bất kỳ chức năng liên quan đến thanh toán có sẵn
+                trên Nền Tảng hoặc được cung cấp bởi bên cung cấp dịch vụ thứ ba;
+              </p>
+              <p class="content">
+                (f) Khi bạn sử dụng bất kỳ tính năng, chức năng, ứng dụng nhỏ hoặc trò chơi trên
+                điện thoại di động có sẵn trên Nền Tảng hoặc các Dịch Vụ;
+              </p>
+              <p class="content">
+                (g) Khi bạn ghi lại bất kỳ nội dung nào do người dùng tạo ra và được đăng tải lên
+                Nền Tảng;
+              </p>
+              <p class="content">(h) Khi bạn sử dụng chức năng trò chuyện trên Nền Tảng;</p>
+              <p class="content">
+                (i) Khi bạn đăng ký nhận các ấn phẩm hoặc sản phẩm tiếp thị của chúng tôi;
+              </p>
+              <p class="content">
+                (j) Khi bạn tham gia một cuộc thi, chương trình khuyến mại, khảo sát, hoạt động hoặc
+                chiến dịch nào trên Nền Tảng;
+              </p>
+              <p class="content">
+                (k) Khi bạn đăng nhập vào tài khoản của bạn trên Nền Tảng hoặc bằng hình thức khác
+                hoặc tương tác với chúng tôi thông qua dịch vụ hoặc ứng dụng khác, chẳng hạn như
+                Facebook hoặc Google;
+              </p>
+              <p class="content">
+                (l) Khi bất kỳ người dùng nào khác trên Nền Tảng đăng bất kỳ nhận xét nào về nội
+                dung mà bạn đã đăng tải lên Nền Tảng hoặc khi bạn đăng bất kỳ nhận xét nào về nội
+                dung của người dùng khác đã đăng tải lên Nền Tảng;
+              </p>
+              <p class="content">
+                (m) Khi một bên thứ ba gửi khiếu nại về bạn hoặc nội dung mà bạn đã đăng tải lên Nền
+                Tảng; và
+              </p>
+              <p class="content">
+                (n) Khi bạn trực tiếp tương tác với chúng tôi, bao gồm khi bạn tương tác với các
+                nhân viên dịch vụ khách hàng được thuê ngoài của chúng tôi.
+              </p>
+            </div>
+            <p class="content">
+              <strong>2.6</strong> Chúng tôi có thể thu thập dữ liệu cá nhân từ bạn, các bên thứ ba
+              (bao gồm nhưng không giới hạn các đại lý, bên cung cấp, nhà thầu, đối tác và bất kỳ
+              người nào khác cung cấp dịch vụ cho chúng tôi mà những đơn vị này thu thập dữ liệu cá
+              nhân của bạn và/hoặc thay mặt chúng tôi thực hiện các chức năng hoặc với những người
+              mà chúng tôi cộng tác, bao gồm nhưng không giới hạn các bên cung cấp dịch vụ thanh
+              toán, các nguồn dữ liệu của chính phủ, các bên cung cấp dịch vụ tài chính, các tổ chức
+              tín dụng, các đối tác vận chuyển, các đối tác tiếp thị và các dịch vụ khác), các bên
+              liên kết của chúng tôi hoặc dữ liệu đó có thể được thu thập tự động khi bạn sử dụng
+              Nền Tảng hoặc các Dịch Vụ, như được trình bày trong phần này. Vui lòng xem thêm các
+              Mục 2.12 đến 2.16 về thu thập dữ liệu máy tính.
+            </p>
+            <p class="content">
+              <strong>2.7</strong> Trong quá trình bạn sử dụng Nền Tảng và trong quá trình chúng tôi
+              cung cấp các Dịch Vụ, bạn xác nhận rằng bạn đã đồng ý (dù là với chúng tôi, bên thứ ba
+              hoặc các bên liên kết của chúng tôi) về việc chuyển dữ liệu cá nhân của bạn từ các bên
+              thứ ba và/hoặc các bên liên kết của chúng tôi cho Circa cho các mục đích được nêu
+              trong Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này hoặc bất kỳ điều khoản nào khác.
+            </p>
+            <p class="content">
+              <strong>2.8</strong> Bạn xác nhận chỉ gửi dữ liệu cá nhân chính xác và không gây nhầm
+              lẫn và đồng ý cập nhật các thông tin này và thông báo cho chúng tôi về bất kỳ thay đổi
+              nào đối với dữ liệu cá nhân mà bạn đã cung cấp cho chúng tôi. Chúng tôi sẽ có quyền
+              yêu cầu cung cấp tài liệu và thực hiện việc kiểm tra cần thiết để xác minh dữ liệu cá
+              nhân do bạn cung cấp như là một phần của quy trình xác minh người dùng của chúng tôi
+              hoặc theo quy định của pháp luật.
+            </p>
+            <p class="content">
+              <strong>2.9</strong> Chúng tôi sẽ chỉ có thể thu thập một số loại dữ liệu cá nhân nhất
+              định nếu bạn tự nguyện cung cấp dữ liệu cá nhân đó cho chúng tôi hoặc theo cách khác
+              được quy định tại Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này. Nếu bạn lựa chọn không cung
+              cấp dữ liệu cá nhân của bạn cho chúng tôi hoặc sau đó rút lại sự đồng ý của bạn đối
+              với việc chúng tôi sử dụng dữ liệu cá nhân của bạn, chúng tôi có thể sẽ không cung cấp
+              được cho bạn một số tính năng hoặc chức năng nhất định trên các Dịch Vụ hoặc việc truy
+              cập Nền Tảng.
+            </p>
+            <p class="content">
+              <strong>2.10</strong> Nếu bạn cung cấp dữ liệu cá nhân của bất kỳ bên thứ ba nào cho
+              chúng tôi, bạn cam đoan và đảm bảo rằng bạn đã có được sự đồng ý, được cấp phép và
+              được cho phép cần thiết từ bên thứ ba đó để chia sẻ và chuyển dữ liệu cá nhân của họ
+              cho chúng tôi, và cho việc chúng tôi thu thập, lưu trữ, sử dụng, tiết lộ hoặc xử lý
+              bằng hình thức khác dữ liệu cá nhân đó theo Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này.
+            </p>
+            <p class="content">
+              <strong>2.11</strong> Nếu bạn đăng ký trở thành một người dùng trên Nền Tảng của chúng
+              tôi bằng tài khoản mạng xã hội hoặc tài khoản của các ứng dụng khác của bạn hoặc liên
+              kết tài khoản Circa với tài khoản mạng xã hội của bạn hoặc sử dụng một số tính năng
+              mạng xã hội khác của Circa, chúng tôi có thể truy cập dữ liệu cá nhân về bạn mà bạn đã
+              tự nguyện cung cấp cho bên cung cấp dịch vụ mạng xã hội của bạn phù hợp với các chính
+              sách của bên cung cấp dịch vụ đó và chúng tôi sẽ quản lý dữ liệu cá nhân của bạn phù
+              hợp với Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này.
+            </p>
+          </div>
+          <div>
+            <p class="title">Thu thập dữ liệu máy tính</p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>2.12</strong> Chúng tôi hoặc các bên cung ứng dịch vụ được ủy quyền của chúng
+              tôi có thể sử dụng cookie, web beacons và các công nghệ tương tự liên quan đến việc sử
+              dụng các Dịch Vụ hoặc truy cập Nền Tảng của bạn.
+            </p>
+            <p class="content">
+              <strong>2.13</strong> Khi bạn truy cập Nền Tảng thông qua máy tính, thiết bị di động,
+              hoặc bất kỳ thiết bị nào khác có kết nối Internet, các máy chủ của chúng tôi sẽ tự
+              động ghi lại dữ liệu mà trình duyệt của bạn gửi đi bất cứ khi nào bạn truy cập một
+              trang web, chẳng hạn như dữ liệu kỹ thuật và dữ liệu sử dụng được nêu trong Mục 2.3 ở
+              trên.
+            </p>
+            <p class="content">
+              <strong>2.14</strong> Dữ liệu này được thu thập cho việc phân tích và đánh giá nhằm
+              giúp chúng tôi cải thiện trang web của chúng tôi và các dịch vụ và sản phẩm mà chúng
+              tôi cung cấp, cũng như giúp chúng tôi cá nhân hóa nội dung để phù hợp với sở thích ưu
+              tiên của bạn một cách nhanh chóng hơn. Dữ liệu cũng được thu thập để làm cho các Dịch
+              Vụ và Nền Tảng trở nên thuận tiện và hữu ích hơn cho bạn, và để cung cấp quảng cáo phù
+              hợp hơn liên quan đến các sản phẩm, dịch vụ và tính năng của thị trường cho bạn.
+            </p>
+            <p class="content">
+              <strong>2.15</strong> Cookie là các tệp văn bản nhỏ (thường bao gồm các chữ cái và số)
+              được đặt trong bộ nhớ của trình duyệt hoặc thiết bị của bạn khi bạn truy cập một trang
+              web hoặc xem một tin nhắn. Cookie cho phép chúng tôi nhận biết một thiết bị hoặc trình
+              duyệt cụ thể. Web beacons là những hình ảnh đồ họa nhỏ có thể được đưa vào các Dịch Vụ
+              và Nền Tảng của chúng tôi. Web beacons cho phép chúng tôi đếm những người dùng đã xem
+              các trang này để chúng tôi có thể hiểu rõ hơn về mối quan tâm và ưu tiên của bạn.
+            </p>
+            <p class="content">
+              <strong>2.16</strong> Bạn có thể quản lý và xóa các cookie thông qua cài đặt trình
+              duyệt hoặc thiết bị của bạn. Tuy nhiên, một số cookie nhất định được yêu cầu phải có
+              để kích hoạt tính năng căn bản của Nền Tảng (ví dụ như việc thêm các sản phẩm vào giỏ
+              hàng), vì vậy xin lưu ý rằng việc thay đổi và xóa cookie có thể ảnh hưởng đến tính
+              năng có sẵn trên Nền Tảng hoặc thông qua các Dịch Vụ của chúng tôi.
+            </p>
+          </div>
+          <li class="medium">Mục đích thu thập và phạm vi sử dụng dữ liệu cá nhân của bạn</li>
+          <div>
+            <p class="title">Mục đích thu thập</p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>3.1</strong> Chúng tôi thu thập, sử dụng và tiết lộ dữ liệu cá nhân theo các
+              mục đích bên dưới phù hợp với pháp luật Việt Nam, và sau khi nhận được sự đồng ý của
+              bạn nếu pháp luật có yêu cầu.
+            </p>
+            <p class="content">
+              <strong>3.2</strong> Dữ liệu cá nhân mà chúng tôi thu thập từ bạn hoặc thông qua các
+              bên thứ ba có thể được chúng tôi sử dụng cho một số mục đích nhất định như sau:
+            </p>
+            <div class="li-lvl-2">
+              <p class="content">
+                (a) Để hỗ trợ việc bạn sử dụng các Dịch Vụ hoặc truy cập vào Nền Tảng, bao gồm:<br />
+                Để xử lý các đơn đặt hàng mà bạn đặt thông qua Nền Tảng;<br />Để giao các đơn đặt
+                hàng bạn đã đặt thông qua Nền Tảng; <br />Để cập nhật cho bạn về việc giao các đơn
+                đặt hàng; <br />Để cung cấp hỗ trợ khách hàng cho các đơn đặt hàng của bạn, chẳng
+                hạn, để hoàn trả sản phẩm mà bạn đã mua thông qua Nền Tảng; <br />và Để xác minh và
+                thực hiện các giao dịch thanh toán (bao gồm các khoản thanh toán bằng thẻ tín dụng,
+                chuyển khoản ngân hàng, thanh toán tiền mặt, chuyển tiền hoặc giao dịch ví điện tử)
+                liên quan đến các khoản thanh toán liên quan đến bạn, các chương trình khuyến mại mà
+                bạn tham gia và/hoặc các Dịch Vụ do bạn sử dụng. <br />Để xác minh và thực hiện các
+                giao dịch thanh toán đó, thông tin thanh toán mà có thể bao gồm dữ liệu cá nhân của
+                bạn, sẽ được chuyển cho các bên thứ ba như là các bên cung cấp dịch vụ thanh toán
+                của chúng tôi. <br />Để hiển thị tên, tên người dùng hoặc hồ sơ của bạn trên Nền
+                Tảng (bao gồm trên bất kỳ đánh giá nào được đăng bởi bạn); <br />Để hỗ trợ việc sử
+                dụng các ứng dụng nhỏ có sẵn trên Nền Tảng và những giao dịch bạn thực hiện thông
+                qua các ứng dụng này; Để phản hồi các thắc mắc, phản hồi, khiếu nại hoặc tranh chấp
+                của bạn, dù trực tiếp hay thông qua các bên cung cấp dịch vụ thứ ba của chúng tôi;
+                Để hiển thị trên bảng điểm trên Nền Tảng liên quan đến các chiến dịch, trò chơi trên
+                điện thoại hoặc bất kỳ hoạt động nào khác; <br />Để cho phép người dùng khác nhận
+                dạng bạn với tư cách là người dùng Dịch Vụ, để cho phép bạn tìm thấy những người
+                dùng khác và kết nối với họ trên Nền Tảng và để hỗ trợ chức năng giao lưu xã hội của
+                Dịch Vụ (nếu áp dụng);
+              </p>
+              <p class="content">
+                (b) Để quản trị và quản lý tài khoản trực tuyến mà bạn khởi tạo với chúng tôi.
+              </p>
+              <p class="content">
+                (c) Để thực hiện việc phân tích, nghiên cứu, hoạt động kinh doanh và phát triển, bao
+                gồm:
+                <br />Để hiểu hơn về trải nghiệm người dùng đối với các Dịch Vụ và Nền Tảng;
+                <br />Để cải thiện bố cục hoặc nội dung của các trang trên Nền Tảng và tùy chỉnh
+                chúng cho các người dùng; <br />Để xác định những người truy cập vào Nền Tảng;
+                <br />Để thực hiện khảo sát, bao gồm thực hiện nghiên cứu về nhân khẩu học và hành
+                vi của người dùng của chúng tôi để cải tiến công nghệ hiện tại của chúng tôi;
+                <br />Để trích lọc được thêm các đặc điểm liên quan đến bạn dựa trên dữ liệu cá nhân
+                mà bạn cung cấp (cho chúng tôi hoặc cho các bên thứ ba), nhằm cung cấp đến bạn các
+                thông tin trọng tâm và/hoặc liên quan hơn. <br />Để tiến hành phân tích dữ liệu, thử
+                nghiệm và nghiên cứu, giám sát và phân tích xu hướng sử dụng và hoạt động; và
+                <br />Để phát triển thêm các sản phẩm và dịch vụ của chúng tôi.
+              </p>
+              <p class="content">
+                (d) Các mục đích pháp lý và vận hành
+                <br />Để xác định danh tính của bạn liên quan đến mục đích phát hiện gian lận;
+                <br />Để so sánh thông tin, và xác minh với bên thứ ba để đảm bảo rằng thông tin là
+                chính xác; <br />Để xử lý khiếu nại, phản hồi, thực hiện chế tài và yêu cầu tháo gỡ
+                liên quan đến bất kỳ nội dung nào mà bạn đã đăng tải trên Nền Tảng; <br />Để thống
+                kê và nghiên cứu cho các yêu cầu báo cáo nội bộ và báo cáo theo quy định pháp luật
+                và/hoặc yêu cầu lưu trữ hồ sơ; <br />Để lưu trữ, lưu giữ trên máy chủ, sao lưu dữ
+                liệu cá nhân của bạn cho các mục đích vận hành, pháp lý hoặc kinh doanh; <br />Để
+                chia sẻ dữ liệu cá nhân liên quan đến bất kỳ việc mua bán, mua bán sáp nhập dự kiến
+                nào đối với bất kỳ phần nào của hoạt động kinh doanh của chúng tôi, với điều kiện là
+                chúng tôi đáp ứng các yêu cầu theo pháp luật về bảo vệ dữ liệu hiện hành khi tiết lộ
+                dữ liệu cá nhân của bạn; <br />Để ngăn chặn hoặc điều tra bất kỳ hành vi vi phạm
+                thực tế hoặc nghi ngờ vi phạm nào đối với Điều Khoản Sử Dụng, Chính Sách Bảo Vệ Dữ
+                Liệu Cá Nhân hoặc bất kỳ chính sách nào của chúng tôi, các hành vi gian lận, hoạt
+                động bất hợp pháp, thiếu sót hoặc thực hiện không đúng, dù liên quan đến việc bạn sử
+                dụng Dịch Vụ của chúng tôi hoặc bất kỳ vấn đề nào khác phát sinh từ mối quan hệ của
+                bạn với chúng tôi; <br />Để thực hiện việc kiểm tra thẩm định; <br />Để tuân thủ các
+                yêu cầu pháp lý và quy định (bao gồm, nếu áp dụng, việc hiển thị tên, thông tin liên
+                hệ và thông tin của bạn), bao gồm bất kỳ yêu cầu của cơ quan Nhà nước có thẩm quyền
+                nào đối với Circa, liên quan đến bất kỳ thủ tục pháp lý nào hoặc trong trường hợp
+                chúng tôi cho là cần thiết; và <br />Để bảo vệ tính mạng, sức khỏe hoặc sự an toàn
+                cá nhân của nhân viên Circa, những người dùng của Circa và/hoặc của cộng đồng.
+              </p>
+              <p class="content">(e) Để thực hiện các hoạt động tiếp thị và quảng cáo.</p>
+              <p class="content">
+                (f) Bất kỳ mục đích nào khác mà đã có được chấp thuận của bạn, tuân thủ với các
+                nghĩa vụ của chúng tôi theo pháp luật hiện hành, bao gồm việc thông báo cho bạn tại
+                thời điểm xin chấp thuận.
+              </p>
+            </div>
+          </div>
+          <div>
+            <p class="title">Những người hoặc tổ chức có thể được tiếp cận với dữ liệu cá nhân</p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>3.3</strong> Chúng tôi có thể chia sẻ dữ liệu cá nhân của bạn với và/hoặc
+              chuyển giao dữ liệu cá nhân của bạn cho các bên thứ ba và/hoặc các bên liên kết của
+              chúng tôi cho các mục đích nêu trên. Các bên thứ ba và các bên liên kết này có thể
+              hiện diện trong hoặc ngoài lãnh thổ Việt Nam, bao gồm nhưng không giới hạn:
+            </p>
+            <div class="li-lvl-2">
+              <p class="content">
+                (a) Các bên cung cấp dịch vụ (chẳng hạn như là các đại lý, nhà bán hàng, nhà thầu,
+                bên tư vấn và đối tác) trong các lĩnh vực như dịch vụ thanh toán, dịch vụ logistics
+                và giao nhận, tiếp thị, phân tích dữ liệu, nghiên cứu thị trường hoặc khách hàng,
+                khảo sát, phương tiện truyền thông mạng xã hội, dịch vụ khách hàng, tư vấn, kiểm
+                toán, pháp lý, các dịch vụ cài đặt, dịch vụ công nghệ thông tin và dịch vụ lưu trữ
+                web;
+              </p>
+              <p class="content">(b) Các bên liên kết của các bên cung cấp dịch vụ;</p>
+              <p class="content">
+                (c) Các tòa án, cơ quan tài phán, cơ quan thi hành pháp luật, các cơ quan chính phủ
+                hay cơ quan quản lý nhà nước có thẩm quyền đối với Circa; và
+              </p>
+              <p class="content">(d) Các người dùng khác của Nền Tảng hoặc các Dịch Vụ.</p>
+            </div>
+            <p class="content">
+              <strong>3.4</strong> Khi tiết lộ dữ liệu cá nhân của bạn cho bên thứ ba và bên liên
+              kết đó, chúng tôi nỗ lực để đảm bảo rằng các bên thứ ba và các bên liên kết của chúng
+              tôi sẽ bảo đảm an toàn cho dữ liệu cá nhân của bạn khỏi các hành vi truy cập, thu
+              thập, sử dụng, tiết lộ, xử lý trái phép hoặc các rủi ro tương tự và chỉ lưu trữ dữ
+              liệu cá nhân của bạn trong thời hạn cần thiết để đạt được các mục đích được đề cập ở
+              trên.
+            </p>
+          </div>
+          <li class="medium">Quyền của bạn đối với dữ liệu cá nhân</li>
+          <div>
+            <p class="content">
+              Không ảnh hưởng đến các quyền của bạn theo quy định pháp luật, bạn có các quyền sau
+              đối với dữ liệu cá nhân của bạn lưu trữ trên Nền Tảng của chúng tôi:
+            </p>
+          </div>
+          <div>
+            <p class="title">
+              Thu hồi chấp thuận cho việc tiếp tục sử dụng, tiết lộ, lưu trữ và/hoặc xử lý dữ liệu
+              cá nhân
+            </p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>4.1</strong> Bạn có thể thông báo về việc rút lại chấp thuận của bạn đối với
+              việc tiếp tục cho phép Circa sử dụng, tiết lộ, lưu trữ và/hoặc xử lý một phần hoặc
+              toàn bộ dữ liệu cá nhân của bạn bằng cách liên hệ với chúng tôi theo thông tin liên
+              lạc bên dưới, tùy thuộc vào các điều kiện và/hoặc giới hạn được áp dụng bởi pháp luật.
+            </p>
+            <p class="content">
+              <strong>4.2</strong> Xin lưu ý rằng nếu bạn thông báo rút lại sự chấp thuận của bạn
+              đối với việc chúng tôi sử dụng, tiết lộ, lưu trữ hoặc xử lý dữ liệu cá nhân của bạn
+              cho các mục đích và bằng cách thức như đã nêu ở trên hoặc thực hiện các quyền khác của
+              bạn theo pháp luật hiện hành, chúng tôi có thể sẽ không tiếp tục cung cấp được các
+              Dịch Vụ cho bạn hoặc thực hiện bất kỳ hợp đồng nào mà chúng tôi đã giao kết với bạn và
+              chúng tôi sẽ không chịu trách nhiệm trong trường hợp chúng tôi không tiếp tục cung cấp
+              các Dịch Vụ cho hoặc thực hiện hợp đồng của chúng tôi với bạn. Các quyền hợp pháp và
+              biện pháp khắc phục của chúng tôi được bảo lưu rõ ràng trong trường hợp này.
+            </p>
+          </div>
+          <div>
+            <p class="title">Tiếp cận và chỉnh sửa dữ liệu cá nhân</p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>4.3</strong> Để bạn tiếp tục sử dụng Nền Tảng và để chúng tôi cung cấp các
+              Dịch Vụ, dữ liệu cá nhân mà bạn cung cấp cho chúng tôi phải chính xác và đầy đủ. Bạn
+              có trách nhiệm thông báo cho chúng tôi về những thay đổi đối với dữ liệu cá nhân của
+              bạn, hoặc trong trường hợp bạn tin rằng dữ liệu cá nhân mà chúng tôi có về bạn là
+              không chính xác, không đầy đủ, gây hiểu lầm hoặc chưa cập nhật.
+            </p>
+            <p class="content">
+              <strong>4.4</strong> Bạn có thể cập nhật dữ liệu cá nhân của mình bằng cách truy cập
+              vào tài khoản của bạn trên Nền Tảng hoặc liên hệ với chúng tôi theo thông tin liên lạc
+              bên dưới.
+            </p>
+            <p class="content">
+              <strong>4.5</strong> Chúng tôi có thể thực hiện các bước để chia sẻ các cập nhật đối
+              với dữ liệu cá nhân của bạn với các bên thứ ba và các bên liên kết của chúng tôi mà
+              chúng tôi đã chia sẻ dữ liệu cá nhân của bạn nếu dữ liệu cá nhân của bạn vẫn cần thiết
+              cho các mục đích được quy định ở trên.
+            </p>
+            <p class="content">
+              <strong>4.6</strong> Bạn có thể yêu cầu thông tin về dữ liệu cá nhân của bạn mà chúng
+              tôi đã thu thập hoặc hỏi về cách thức mà dữ liệu cá nhân của bạn có thể đã được chúng
+              tôi sử dụng, tiết lộ, lưu trữ và xử lý hoặc yêu cầu xóa một phần hoặc toàn bộ dữ liệu
+              cá nhân bằng cách liên hệ với chúng tôi theo thông tin liên lạc tại Mục 11.2 bên dưới.
+              Để hỗ trợ việc xử lý yêu cầu của bạn, chúng tôi có thể cần phải yêu cầu bạn cung cấp
+              thêm thông tin liên quan đến yêu cầu đó. Trong phạm vi pháp luật cho phép, chúng tôi
+              có thể từ chối thực hiện các yêu cầu sửa đổi của bạn nếu những yêu cầu này không đủ cơ
+              sở hoặc không hợp lý.
+            </p>
+          </div>
+          <div>
+            <p class="title">Cam kết bảo vệ dữ liệu cá nhân</p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>5.1</strong> Để bảo vệ dữ liệu cá nhân của bạn khỏi việc truy cập, thu thập,
+              sử dụng, tiết lộ, xử lý, sao chép, sửa đổi, hủy bỏ, mất mát, sử dụng sai mục đích,
+              chỉnh sửa bất hợp pháp hoặc các rủi ro tương tự trong quá trình bạn sử dụng Nền Tảng
+              và/hoặc các Dịch Vụ của chúng tôi, chúng tôi đã đưa ra các biện pháp quản trị, vật lý
+              và kỹ thuật phù hợp như sau:
+            </p>
+          </div>
+          <div class="li-lvl-2">
+            <p class="content">
+              (a) Giới hạn quyền truy cập vào dữ liệu cá nhân đối với những cá nhân yêu cầu quyền
+              truy cập;
+            </p>
+            <p class="content">
+              (b) Duy trì các sản phẩm công nghệ để ngăn chặn việc truy cập trái phép vào máy tính;
+            </p>
+            <p class="content">
+              (c) Sử dụng công nghệ mã hóa (các lớp bảo mật) khi xử lý thông tin tài chính của bạn;
+              và/hoặc
+            </p>
+            <p class="content">
+              (d) Thực hiện các biện pháp bảo vệ khác theo yêu cầu của pháp luật hiện hành.
+            </p>
+          </div>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>5.2</strong> Tuy nhiên, bạn nên hiểu rằng không có phương thức truyền tải qua
+              Internet hoặc phương thức lưu trữ điện tử nào là an toàn tuyệt đối. Mặc dù việc bảo
+              mật không thể được đảm bảo tuyệt đối, chúng tôi nỗ lực để bảo vệ an toàn thông tin của
+              bạn và liên tục rà soát và nâng cao các biện pháp bảo mật thông tin của chúng tôi. Bạn
+              cũng được khuyến nghị nên cẩn trọng trong việc chia sẻ dữ liệu cá nhân của mình và các
+              thông tin xác thực/bảo mật (như là mật khẩu, thông tin thẻ tín dụng, thông tin giao
+              dịch) bên ngoài Nền Tảng/các Dịch Vụ của chúng tôi.
+            </p>
+          </div>
+          <li class="medium">Thời hạn lưu giữ dữ liệu</li>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>6.1</strong> Chúng tôi sẽ chỉ lưu giữ dữ liệu cá nhân của bạn trong thời hạn
+              mà chúng tôi hoặc được yêu cầu hoặc được pháp luật cho phép, hoặc có liên quan đến các
+              mục đích mà dữ liệu cá nhân được thu thập.
+            </p>
+            <p class="content">
+              <strong>6.2</strong> Chúng tôi sẽ ngừng việc lưu trữ dữ liệu cá nhân của bạn bằng cách
+              hủy bỏ dữ liệu cá nhân đó một cách an toàn, hoặc loại bỏ phương tiện mà dữ liệu có thể
+              được liên kết với bạn thông qua các quy trình được pháp luật cho phép, ngay khi (i) có
+              lý do hợp lý để cho rằng việc lưu giữ đó không còn phục vụ cho các mục đích mà dữ liệu
+              cá nhân được thu thập và không còn cần thiết cho bất kỳ mục đích pháp lý hoặc kinh
+              doanh nào và/h
+            </p>
+          </div>
+          <li class="medium">Đối tượng chưa thành niên</li>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>7.1</strong> Bạn theo đây xác nhận và đảm bảo rằng bạn đang ở trên độ tuổi
+              chưa thành niên và bạn có khả năng hiểu và chấp nhận các điều khoản của Chính Sách Bảo
+              Vệ Dữ Liệu Cá Nhân này. Nếu bạn là đối tượng chưa thành niên, bạn chỉ được sử dụng Nền
+              Tảng của chúng tôi khi có sự đồng ý của cha mẹ hoặc người giám hộ hợp pháp.
+            </p>
+            <p class="content">
+              <strong>7.2</strong> Với tư cách là cha mẹ hoặc người giám hộ hợp pháp, vui lòng không
+              cho phép các đối tượng chưa thành niên dưới sự giám hộ của bạn gửi dữ liệu cá nhân đến
+              Circa. Trong trường hợp dữ liệu cá nhân của đối tượng chưa thành niên được tiết lộ cho
+              Circa, bạn theo đây đồng ý việc xử lý dữ liệu cá nhân của đối tượng chưa thành niên và
+              chấp nhận và đồng ý chịu sự ràng buộc của Chính Sách Bảo Vệ Dữ Liệu Cá Nhân này và
+              chịu trách nhiệm về hành động của đối tượng chưa thành niên đó.
+            </p>
+            <p class="content">
+              <strong>7.3</strong> Chúng tôi sẽ không chịu trách nhiệm về bất kỳ việc sử dụng trái
+              phép các Dịch Vụ trên Nền Tảng bởi chính bản thân bạn, các người dùng hành động thay
+              mặt bạn hoặc bất kỳ người dùng trái phép nào. Bạn có trách nhiệm đưa ra quyết định thể
+              hiện đầy đủ nhận thức của mình về việc sử dụng các Dịch Vụ trên Nền Tảng và thực hiện
+              các bước cần thiết để ngăn chặn bất kỳ hành vi sử dụng trái phép các Dịch Vụ trên Nền
+              Tảng.
+            </p>
+          </div>
+
+          <li class="medium">Dịch vụ và trang của bên thứ ba</li>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>8.1</strong> Chúng tôi có thể chia sẻ dữ liệu cá nhân của bạn với các bên cung
+              cấp dịch vụ thứ ba hoặc các bên liên kết của chúng tôi (ví dụ: các bên cung cấp dịch
+              vụ thanh toán) để các đơn vị này đề nghị cung cấp dịch vụ cho bạn kết hợp với việc bạn
+              sử dụng Nền Tảng hoặc các Dịch Vụ của chúng tôi. Việc bạn đồng ý và sử dụng các dịch
+              vụ của bên cung cấp dịch vụ thứ ba hoặc của các bên liên kết của chúng tôi sẽ tuân thủ
+              theo các điều khoản và điều kiện được đồng ý giữa bạn và bên cung cấp dịch vụ thứ ba
+              hoặc bên liên kết của chúng tôi. Một khi bạn đồng ý việc cung cấp dịch vụ của bên cung
+              cấp dịch vụ thứ ba hoặc bên liên kết của chúng tôi, việc thu thập, sử dụng, tiết lộ,
+              lưu trữ, chuyển giao và xử lý dữ liệu cá nhân của bạn (bao gồm dữ liệu cá nhân của bạn
+              và bất kỳ dữ liệu nào được chúng tôi tiết lộ cho bên cung cấp dịch vụ thứ ba hoặc bên
+              liên kết) sẽ tuân theo chính sách bảo mật hiện hành của bên cung cấp dịch vụ thứ ba
+              hoặc bên liên kết của chúng tôi, cũng là Bên kiểm soát dữ liệu cá nhân. Bạn đồng ý
+              rằng mọi thắc mắc hoặc khiếu nại liên quan đến việc bạn chấp thuận hoặc sử dụng các
+              dịch vụ của bên cung cấp dịch vụ thứ ba hoặc bên liên kết của chúng tôi sẽ được gửi
+              trực tiếp đến bên có tên trong chính sách bảo mật được áp dụng.
+            </p>
+            <p class="content">
+              <strong>8.2</strong> Nền Tảng có thể chứa các liên kết đến các trang web khác do các
+              bên khác vận hành, chẳng hạn như các bên liên kết của chúng tôi, các bên bán hàng hoặc
+              cổng thanh toán. Chúng tôi không chịu trách nhiệm về thực tiễn bảo mật của các trang
+              web do các bên này vận hành. Bạn được khuyến nghị nên kiểm tra các chính sách bảo mật
+              hiện hành của các trang web đó để xác định cách thức họ sẽ xử lý thông tin mà họ thu
+              thập được từ bạn.
+            </p>
+            <p class="content">
+              <strong>8.3</strong> Xin lưu ý rằng mặc dù bên thứ ba có liên kết với chúng tôi, chúng
+              tôi không có quyền kiểm soát các trang web của các bên thứ ba này, mỗi trang web đó có
+              thể có cách thực hành quyền riêng tư và thu thập dữ liệu độc lập với chúng tôi. Vì
+              vậy, chúng tôi không có trách nhiệm hoặc không chịu trách nhiệm đối với nội dung, cơ
+              chế bảo vệ (hoặc việc thiếu các nội dung và cơ chế bảo vệ đó) và các hoạt động của các
+              trang web liên kết này. Các trang web liên kết này chỉ nhằm mang đến sự thuận tiện cho
+              bạn và do đó, bạn tự chịu các rủi ro khi truy cập các trang web liên kết này. Tuy
+              nhiên, chúng tôi luôn nỗ lực bảo vệ sự minh bạch của Nền Tảng của chúng tôi và các
+              đường dẫn được đặt trên mỗi Nền Tảng của chúng tôi và vì thế, chúng tôi rất sẵn lòng
+              tiếp nhận bất kỳ góp ý nào về các trang web liên kết này (bao gồm, nhưng không giới
+              hạn, trường hợp một đường dẫn nhất định không hoạt động).
+            </p>
+          </div>
+          <li class="medium">Chuyển dữ liệu cá nhân xuyên biên giới</li>
+          <div>
+            <p class="content">
+              Việc chuyển dữ liệu cá nhân của bạn mà chúng tôi thu thập theo Chính Sách Bảo Vệ Dữ
+              Liệu Cá Nhân này ra bên ngoài lãnh thổ Việt Nam sẽ được thực hiện tuân thủ quy định
+              pháp luật Việt Nam.
+            </p>
+          </div>
+          <li class="medium">
+            Cơ chế tiếp nhận và giải quyết khiếu nại của người tiêu dùng liên quan đến việc thông
+            tin cá nhân bị sử dụng sai mục đích hoặc phạm vi đã thông báo
+          </li>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>10.1</strong> Nếu bạn có nghi ngờ rằng dữ liệu cá nhân của bạn đã bị sử dụng
+              sai mục đích thu thập hoặc phạm vi sử dụng mà chúng tôi đã thông báo, bạn có thể gửi
+              thắc mắc hoặc khiếu nại về việc chúng tôi sử dụng dữ liệu cá nhân của bạn thông qua
+              chức năng trò chuyện trực tuyến của chúng tôi hoặc theo các thông tin liên hệ của
+              chúng tôi nêu tại Mục 11.2.
+            </p>
+            <p class="content">
+              <strong>10.2</strong> Nhân viên bảo vệ dữ liệu cá nhân của chúng tôi sẽ tiếp nhận các
+              khiếu nại của bạn và tùy theo tính chất và mức độ của thắc mắc hoặc khiếu nại của bạn,
+              chúng tôi sẽ có những biện pháp cụ thể để giải quyết thắc mắc hoặc khiếu nại của bạn.
+            </p>
+          </div>
+          <li class="medium">
+            Địa chỉ của đơn vị thu thập và quản lý thông tin, bao gồm cách thức liên lạc để người
+            dùng (bao gồm cả người tiêu dùng) có thể hỏi về hoạt động thu thập, xử lý thông tin liên
+            quan đến cá nhân người tiêu dùng
+          </li>
+          <div class="li-lvl-1">
+            <p class="content">
+              <strong>11.1</strong> Nếu bạn có bất kỳ câu hỏi nào về việc bảo vệ dữ liệu cá nhân
+              hoặc quyền riêng tư về dữ liệu, vui lòng tham khảo danh sách các câu hỏi thường gặp về
+              bảo vệ dữ liệu/quyền riêng tư về dữ liệu của chúng tôi.
+            </p>
+            <p class="content">
+              <strong>11.2</strong> Nếu bạn có các thắc mắc khác về cách thực hành việc bảo vệ dữ
+              liệu/quyền riêng tư về dữ liệu của chúng tôi, hoặc muốn thực hiện bất kỳ quyền nào mà
+              bạn có thể có theo pháp luật hiện hành, vui lòng liên hệ với chúng tôi qua chức năng
+              trò chuyện trực tuyến của chúng tôi hoặc theo các thông tin liên hệ sau:
+            </p>
+          </div>
+          <div>
+            <p class="title">Bộ Phận Bảo Vệ Dữ Liệu Cá Nhân - Công Ty TNHH Circa Pharmacy</p>
+            <p class="content">
+              Địa chỉ trụ sở chính: 2-3 Lô A3 Cư xá 47 Trịnh Đình Trọng, Phường 5, Quận 11, Thành
+              phố Hồ Chí Minh, Việt Nam
+              <br />
+              Địa chỉ liên hệ: Tầng 8, Tòa nhà Vincom Center Đồng Khởi, 72 Lê Thánh Tôn, Phường Bến
+              Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam
+              <br />
+              Số điện thoại: <a href="tel:02871016789" class="primaryRef">(028) 71016789</a>
+              <br />
+              Email:
+              <a href="mailto:hotro.circa@buymed.com" class="primaryRef">hotro.circa@buymed.com</a>
+            </p>
+          </div>
+        </ol>
+      </section>
+
+      <section id="delivery-terms" class="content-section">
+        <h1>CHÍNH SÁCH VẬN CHUYỂN VÀ GIAO NHẬN HÀNG HÓA TRÊN NỀN TẢNG CIRCA</h1>
+        <p class="title">1. Chính sách chung</p>
+        <p class="content">
+          Bằng cách sử dụng dịch vụ vận chuyển trên Nền Tảng Circa, Khách Hàng thừa nhận và đồng ý
+          với các quy định và/hoặc thực tiễn áp dụng nêu trong Chính sách vận chuyển và giao nhận
+          hàng hóa này.
+        </p>
+        <p class="content">
+          Sau khi nhận được thông tin đặt hàng, Circa sẽ nỗ lực xử lý đơn hàng trong vòng 24 giờ và
+          phản hồi lại thông tin cho Khách Hàng về việc giao hàng. Thời gian giao hàng thường sẽ
+          được thực hiện trong khoảng từ 03 đến 05 ngày kể từ ngày xác nhận đơn hàng hoặc theo thỏa
+          thuận với Khách Hàng khi Circa xác nhận đơn đặt hàng. Tuy nhiên, việc giao hàng có thể kéo
+          dài hơn khi xảy ra một trong những tình huống bất khả kháng như sau:
+        </p>
+        <ul style="list-style-type: disc">
+          <li>
+            <p class="content">
+              Đối tác vận chuyển của Circa không liên lạc được với Khách Hàng qua điện thoại;
+            </p>
+          </li>
+          <li>
+            <p class="content">
+              Địa chỉ giao hàng Khách Hàng cung cấp không chính xác hoặc không thể tìm thấy bằng nỗ
+              lực hợp lý;
+            </p>
+          </li>
+          <li>
+            <p class="content">
+              Số lượng đơn hàng của Circa tăng đột biến khiến việc xử lý đơn hàng bị chậm;
+            </p>
+          </li>
+          <li>
+            <p class="content">
+              Các yếu tố khách quan, bao gồm nhưng không giới hạn thời tiết, lịch bay thay đổi đối
+              với vận chuyển bằng đường hàng không, thời gian bay, giờ kẹt xe, khu vực có dịch bệnh;
+            </p>
+          </li>
+          <li>
+            <p class="content">
+              Trong trường hợp đối tác vận chuyển của Circa giao hàng chậm hơn so với thời gian dự
+              kiến, Circa sẽ cố gắng liên hệ với đối tác vận chuyển để hỗ trợ giao đơn cho Khách
+              Hàng hoặc hỗ trợ chi phí vận chuyển cho Khách Hàng tùy vào quyết định của Circa.
+            </p>
+          </li>
+        </ul>
+        <p class="title">2. Thời gian giao hàng dự kiến</p>
+        <p class="content">
+          Thời gian giao hàng dự kiến của Circa sẽ tuỳ thuộc vào từng khu vực như sau:
+        </p>
+        <ul style="list-style-type: disc">
+          <li>
+            <p class="content">Trong phạm vi Tp. Hồ Chí Minh: Trong vòng 36 giờ</p>
+          </li>
+          <li>
+            <p class="content">Miền Tây: 01 - 02 ngày làm việc</p>
+          </li>
+          <li>
+            <p class="content">Miền Trung: 03 - 04 ngày làm việc</p>
+          </li>
+          <li>
+            <p class="content">Miền Bắc: 05 - 06 ngày làm việc</p>
+          </li>
+        </ul>
+        <p class="content">
+          <strong>Lưu ý:</strong> Đây là thời gian giao hàng dự kiến. Sau khi xác nhận đơn hàng,
+          Circa sẽ giao hàng cho đối tác vận chuyển trong vòng 48 giờ.
+        </p>
+        <p class="title">3. Phí giao hàng</p>
+        <p class="content">
+          Circa áp dụng phí giao hàng cho các đơn hàng tại TP. Hồ Chí Minh và các tỉnh thành tại
+          Việt Nam theo biểu phí giao hàng tiêu chuẩn của đối tác vận chuyển áp dụng tùy từng thời
+          điểm. Circa sẽ hiển thị phí giao hàng đối với từng đơn hàng cụ thể để Khách Hàng tham khảo
+          trước khi xác nhận đặt hàng.
+        </p>
+        <p class="title">
+          4. Trách nhiệm của thương nhân, tổ chức cung ứng dịch vụ logistics về cung cấp chứng từ
+          hàng hóa trong quá trình giao nhận
+        </p>
+        <p class="content">
+          Việc cung cấp các chứng từ, hóa đơn liên quan đến hàng hóa thuộc về trách nhiệm của Circa.
+          Để phục vụ cho quá trình vận chuyển hàng hóa của đơn vị vận chuyển, Circa luôn đóng kèm
+          trong mỗi gói hàng: hóa đơn bán hàng và các chứng từ liên quan chứng minh sản phẩm thuộc
+          sở hữu của Circa. Trong quá trình vận chuyển, nhân viên vận chuyển có thể xuất trình các
+          chứng từ nêu trên để chứng minh nguồn gốc, xuất xứ của hàng hóa nếu được yêu cầu bởi các
+          cơ quan chức năng có thẩm quyền.
+        </p>
+        <p class="content">
+          Trong trường hợp có người mua thắc mắc về chứng từ mua hàng sau khi hàng đã được giao,
+          Khách Hàng liên hệ trực tiếp với Circa để được giải quyết khiếu nại.
+        </p>
+      </section>
+    </main>
+  </body>
+  <script>
+    function switchTab(event, sectionId) {
+      event.preventDefault();
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(sectionId).style.display = 'block';
+      document.querySelectorAll('header nav a').forEach(link => {
+        link.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      // Add the active class to the clicked nav item
+      const clickedNavItem = event.target;
+      clickedNavItem.classList.add('active');
+
+      // Scroll the nav item into view
+      clickedNavItem.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+
+    document.querySelector('.copy').addEventListener('click', () => {
+      const accountNumber = 'MSH1MEDSHIP';
+      navigator.clipboard.writeText(accountNumber).then(() => {
+        alert('Số tài khoản đã được sao chép!');
+      });
+    });
+
+    // Get selectedTab from URL parameters
+    function getSelectedTabFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      console.log('params', params.get('selectedTab'));
+      return params.get('selectedTab') || 'payment-methods'; // Default to 'info' if no parameter is found
+    }
+
+    const initialTab = getSelectedTabFromURL();
+    if (initialTab) {
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(initialTab).style.display = 'block';
+      document.querySelectorAll('header nav a').forEach(link => {
+        link.classList.remove('active');
+      });
+      document.getElementById(`ref-${initialTab}`).classList.add('active');
+
+      // Scroll the nav item into view
+      document.getElementById(`ref-${initialTab}`).scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  </script>
+</html>

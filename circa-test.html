@@ -29,7 +29,7 @@
         -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
       }
       header nav::-webkit-scrollbar-track {
-        background-color: #f7f7f7;
+        background-color: transparent;
       }
       header nav a {
         margin: 0 10px;
@@ -47,6 +47,7 @@
       }
       header nav::-webkit-scrollbar {
         height: 6px;
+        display: none;
       }
       header nav::-webkit-scrollbar-thumb {
         background-color: white;
@@ -205,7 +206,7 @@
   </head>
 
   <body>
-    <header>
+    <header style="position: fixed">
       <nav id="nav">
         <a
           href="#"
@@ -256,7 +257,7 @@
         </div>
         <div class="dash"></div>
         <div class="bank-details">
-          <div style="display: flex; align-items: flex-start">
+          <div style="display: flex; align-items: flex-start; justify-content: center">
             <div class="key-group">
               <p class="key">Chủ tài khoản:</p>
               <p class="key">Số tài khoản:</p>

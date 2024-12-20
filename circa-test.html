@@ -2308,9 +2308,7 @@
 
     document.querySelector('.copy').addEventListener('click', () => {
       const accountNumber = 'MSH1MEDSHIP';
-      navigator.clipboard.writeText(accountNumber).then(() => {
-        alert('Số tài khoản đã được sao chép!');
-      });
+      navigator.clipboard.writeText(accountNumber).then(() => {});
     });
 
     // Get selectedTab from URL parameters

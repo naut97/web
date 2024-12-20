@@ -4,13 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thông tin Circa</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&v=2"
-      rel="stylesheet" />
     <style>
+      @font-face {
+        font-family: "Inter-Regular";
+        src: url('./assets/Inter-Regular.ttf') format('ttf')
+      }
+      @font-face {
+        font-family: "Inter-SemiBold";
+        src: url('./assets/Inter-SemiBold.ttf') format('ttf')
+      }
+      @font-face {
+        font-family: "Inter-Bold";
+        src: url('./assets/Inter-Bold.ttf') format('ttf')
+      }
+      @font-face {
+        font-family: "Inter-Medium";
+        src: url('./assets/Inter-Medium.ttf') format('ttf')
+      }
       body {
         background-color: white;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter-Regular";
         margin: 0;
         font-size: 12px;
         scroll-behavior: smooth;
@@ -34,12 +47,12 @@
         color: #393939;
         white-space: nowrap;
         font-size: 12px;
-        font-weight: 500;
+        font-family: "Inter-Medium";
         margin: 0;
         padding: 10px;
       }
       header nav a.active {
-        font-weight: 500;
+        font-family: "Inter-Medium";
         color: #393939;
         border-bottom: 2px solid #fb743e;
       }
@@ -69,7 +82,7 @@
       }
       .payment-method span {
         font-size: 14px;
-        font-weight: 500;
+        font-family: "Inter-Medium";
       }
       .content-section {
         padding-top: 16px;
@@ -89,7 +102,7 @@
       }
       .bank-details .key {
         font-size: 12px;
-        font-weight: 400;
+        font-family: "Inter-Regular";
         color: #797979;
         line-height: 22px;
       }
@@ -98,12 +111,12 @@
       }
       .bank-details .bank-name {
         font-size: 12px;
-        font-weight: 400;
+        font-family: "Inter-Regular";
         color: #797979;
       }
       .bank-details strong {
         font-size: 14px;
-        font-weight: 500;
+        font-family: "Inter-Medium";
         color: #393939;
         line-height: 22px;
       }
@@ -121,7 +134,7 @@
       }
       .payment-support p {
         font-size: 14px;
-        font-weight: 500;
+        font-family: "Inter-Medium";
       }
       .payment-support .phone-call-support {
         font-size: 14px;
@@ -145,7 +158,7 @@
       .payment-support a {
         text-decoration: none;
         font-size: 14px;
-        font-weight: 400;
+        font-family: "Inter-Regular";
         line-height: 16px;
         color: #fb743e;
       }
@@ -174,21 +187,21 @@
       p.title {
         color: #393939;
         font-size: 14px;
-        font-weight: 500;
+        font-family: "Inter-Medium";
       }
       p.content {
         color: #393939;
         font-size: 14px;
-        font-weight: 400;
+        font-family: "Inter-Regular";
       }
       a.primaryRef {
         text-decoration: none;
         color: #fb743e;
-        font-weight: 500;
+        font-family: "Inter-Medium";
       }
       .medium {
         font-size: 14px;
-        font-weight: 500;
+        font-family: "Inter-Medium";
       }
       ol {
         font-size: 14px;
@@ -227,7 +240,7 @@
         color: rgb(251 116 62 / var(--tw-text-opacity, 1));
       }
       .font-medium {
-        font-weight: 500;
+        font-family: "Inter-Medium";
       }
       .text-\[\#15A959\] {
         --tw-text-opacity: 1;
@@ -265,7 +278,7 @@
         text-decoration: inherit;
       }
       .font-semibold {
-        font-weight: 600;
+        font-family: "Inter-SemiBold";
       }
       .w-fit {
         width: -moz-fit-content;

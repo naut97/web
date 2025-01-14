@@ -4,32 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thông tin Circa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet" />
     <style>
-      @font-face {
-        font-family: "Inter-Regular";
-        src: url('/web/assets/Inter-Regular.ttf')
-      }
-      @font-face {
-        font-family: "Inter-SemiBold";
-        src: url('/web/assets/Inter-SemiBold.ttf')
-      }
-      @font-face {
-        font-family: "Inter-Bold";
-        src: url('/web/assets/Inter-Bold.ttf')
-      }
-      @font-face {
-        font-family: "Inter-Medium";
-        src: url('/web/assets/Inter-Medium.ttf')
-      }
       body {
         background-color: white;
-        font-family: "Inter-Regular";
+        font-family: 'Inter', sans-serif;
         margin: 0;
         font-size: 12px;
         scroll-behavior: smooth;
-      }
-      strong {
-        font-family: "Inter-Medium";
       }
       header {
         background: white;
@@ -50,12 +36,12 @@
         color: #393939;
         white-space: nowrap;
         font-size: 12px;
-        font-family: "Inter-Medium";
+        font-weight: 500;
         margin: 0;
         padding: 10px;
       }
       header nav a.active {
-        font-family: "Inter-Medium";
+        font-weight: 500;
         color: #393939;
         border-bottom: 2px solid #fb743e;
       }
@@ -85,7 +71,7 @@
       }
       .payment-method span {
         font-size: 14px;
-        font-family: "Inter-Medium";
+        font-weight: 500;
       }
       .content-section {
         padding-top: 16px;
@@ -105,7 +91,7 @@
       }
       .bank-details .key {
         font-size: 12px;
-        font-family: "Inter-Regular";
+        font-weight: 400;
         color: #797979;
         line-height: 22px;
       }
@@ -114,12 +100,12 @@
       }
       .bank-details .bank-name {
         font-size: 12px;
-        font-family: "Inter-Regular";
+        font-weight: 400;
         color: #797979;
       }
       .bank-details strong {
         font-size: 14px;
-        font-family: "Inter-Medium";
+        font-weight: 500;
         color: #393939;
         line-height: 22px;
       }
@@ -137,7 +123,7 @@
       }
       .payment-support p {
         font-size: 14px;
-        font-family: "Inter-Medium";
+        font-weight: 500;
       }
       .payment-support .phone-call-support {
         font-size: 14px;
@@ -161,7 +147,7 @@
       .payment-support a {
         text-decoration: none;
         font-size: 14px;
-        font-family: "Inter-Regular";
+        font-weight: 400;
         line-height: 16px;
         color: #fb743e;
       }
@@ -190,21 +176,21 @@
       p.title {
         color: #393939;
         font-size: 14px;
-        font-family: "Inter-Medium";
+        font-weight: 500;
       }
       p.content {
         color: #393939;
         font-size: 14px;
-        font-family: "Inter-Regular";
+        font-weight: 400;
       }
       a.primaryRef {
         text-decoration: none;
         color: #fb743e;
-        font-family: "Inter-Medium";
+        font-weight: 500;
       }
       .medium {
         font-size: 14px;
-        font-family: "Inter-Medium";
+        font-weight: 500;
       }
       ol {
         font-size: 14px;
@@ -243,7 +229,7 @@
         color: rgb(251 116 62 / var(--tw-text-opacity, 1));
       }
       .font-medium {
-        font-family: "Inter-Medium";
+        font-weight: 500;
       }
       .text-\[\#15A959\] {
         --tw-text-opacity: 1;
@@ -281,7 +267,7 @@
         text-decoration: inherit;
       }
       .font-semibold {
-        font-family: "Inter-SemiBold";
+        font-weight: 600;
       }
       .w-fit {
         width: -moz-fit-content;
@@ -513,8 +499,8 @@
               alt="download" />
             <a
               class="download-qr"
-              download="MSH1MEDSHIP"
-              href="/web/assets/qr_medship.png"
+              download="MSH1MEDSHIP.jpg"
+              href="https://cdn-gcs.thuocsi.vn/thuocsi-live/circa-mobile/20240004cbd2035036138167e3e27bf5"
               >Tải mã QR xuống</a
             >
           </div>
@@ -2307,7 +2293,9 @@
 
     document.querySelector('.copy').addEventListener('click', () => {
       const accountNumber = 'MSH1MEDSHIP';
-      navigator.clipboard.writeText(accountNumber).then(() => {});
+      navigator.clipboard.writeText(accountNumber).then(() => {
+        alert('Số tài khoản đã được sao chép!');
+      });
     });
 
     // Get selectedTab from URL parameters
